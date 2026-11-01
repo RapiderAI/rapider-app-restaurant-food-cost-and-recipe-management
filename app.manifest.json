@@ -1,0 +1,4188 @@
+{
+  "name": "Rapider Restaurant Food Cost & Recipe Management",
+  "key": "restaurant-food-cost-and-recipe-management",
+  "domainKey": "HSP",
+  "appSuite": {
+    "key": "HSP",
+    "title": "Rapider Hospitality Suite"
+  },
+  "type": "App",
+  "description": "1.2 Target Personas & Progressive Disclosure - SME Fast-Path Defaults (Independent Restaurants, Bakeries, Craft Cocktail Bars, Pizzerias): Start immediately by uploading/ingesting vendor invoices to track live ingredient prices & daily Food/Bev spend %, build core top-20 dish & cocktail recipes with automatic plate-cost % badges, and run 20-minute shelf-to-sheet walk-in/bar mobile counts. - Enterprise Progressive Disclosure (Multi-Unit Restaurant Groups, Central Commissaries, Hotel Executive Che",
+  "isPublic": true,
+  "tags": [
+    "hsp",
+    "restaurant-food-cost-and-recipe-management",
+    "top-200"
+  ],
+  "iconUrl": "fas fa-concierge-bell",
+  "icon": "fas fa-concierge-bell",
+  "route": "restaurant-food-cost-and-recipe-management",
+  "rating": 5,
+  "reviewCount": 0,
+  "status": "app-metadata-completed",
+  "coverPage": "<!-- Rapider Official App SOW & Specification | App #175: Restaurant Food Cost & Recipe Management (restaurant-food-cost-and-recipe-management) | Domain: HSP -->\n\n# #175 Restaurant Food Cost & Recipe Management (`restaurant-food-cost-and-recipe-management`) — Scope of Work (SOW)\n\n- **App Number & Name:** `#175` — Restaurant Food Cost & Recipe Management\n- **Proposed App Key:** `restaurant-food-cost-and-recipe-management`\n- **Suite / Domain Key & Model Prefix:** `HSP` (`Hsp*`)\n- **Function Category:** 18. Hospitality, Restaurants & Travel\n- **Representative Product (`P1`):** MarginEdge\n- **Combined Feature Catalog:** [../combined-features/175-restaurant-food-cost-and-recipe-management-features.md](../combined-features/175-restaurant-food-cost-and-recipe-management-features.md)\n- **Target Release Posture:** Culinary Sub-Recipe & Yield Costing, Distributor Invoice Price-Creep Engine, Shelf-to-Sheet Physical Counts, Theoretical vs. Actual (`TvA`) Variance & Menu Engineering Microapplication\n\n---\n\n## 1. Executive Outcome & Target Audience\n\n### 1.1 Business Problem Solved\nRestaurants operate on razor-thin 4%–8% net profit margins, yet most chefs and GMs rely on stale static spreadsheets created months ago—missing weekly 12% Sysco/US Foods beef or dairy price spikes, ignoring 30% fish butchery trim loss, counting walk-in coolers on clipboards out of shelf order, and discovering runaway Prime Cost 25 days after month-end. **Rapider Restaurant Food Cost & Recipe Management (`restaurant-food-cost-and-recipe-management`)** connects live distributor invoice line prices (`FinSupplierBill`) to cycle-free nested sub-recipes with exact trim/cook yields, pairs `#170` itemized `PMIX` sales & kitchen waste with blind shelf-to-sheet physical counts to isolate Theoretical vs. Actual (`TvA`) shrinkage down to the ounce, and plots live *Stars/Plowhorses/Puzzles/Dogs* menu engineering matrices natively across Rapider `HSP`, `OPS`, `FIN`, and `HR`.\n\n### 1.2 Target Personas & Progressive Disclosure\n- **SME Fast-Path Defaults (Independent Restaurants, Bakeries, Craft Cocktail Bars, Pizzerias):** Start immediately by uploading/ingesting vendor invoices to track live ingredient prices & daily Food/Bev spend %, build core top-20 dish & cocktail recipes with automatic plate-cost % badges, and run 20-minute shelf-to-sheet walk-in/bar mobile counts.\n- **Enterprise Progressive Disclosure (Multi-Unit Restaurant Groups, Central Commissaries, Hotel Executive Chefs, F&B Controllers):** Unlock multi-tier nested commissary sub-recipes with raw-to-trimmed-to-cooked yield cascades, automated allergen/nutrition inheritance pushed to `#170`, cheapest-vendor split `OpsPurchaseOrder` generation, blind count high-variance recount gates via Home `WorkItem`s, modifier-aware `TvA` variance decomposition, daily Prime Cost (COGS + Labor %) flash reports, and automated USALI inventory valuation `FinJournalEntry` postings.\n\n### 1.3 Measurable Business Outcomes\n- **2.5 to 5.0 Percentage-Point Food & Pour Cost Reduction:** Real-time vendor price-creep alerts + ounce-level `TvA` variance expose over-portioning, unrecorded bar pours, and supplier overcharges within 24–48 hours.\n- **Instant Sub-Recipe Cost Cascading:** Updating a single butter, flour, or tenderloin invoice line recalculates every dependent sub-recipe, modifier, and plated dish cost in `< 500ms` with `Decimal128` 6-decimal-place precision.\n- **50% Faster Period-End Kitchen & Bar Counts:** Physical walk-path (`Shelf-to-Sheet`) ordering with dual Case + Loose-Unit inputs cuts Sunday night inventory labor in half while feeding `inventory` (`OpsInventoryPosition`) and `acc` (`FinJournalEntry`).\n\n### 1.4 Benchmark Summary (`P1`–`P6`)\nCombines the frictionless invoice-to-plate cost cascade and *Stars/Plowhorses* menu engineering of **`P1` MarginEdge**, enterprise `TvA` variance, commissary batching, and daily Prime Cost flash of **`P2` Restaurant365**, multi-vendor usable-unit par ordering and credit-memo tracking of **`P3` MarketMan**, multi-tier trim/cook yield math, batch scaling, and allergen/nutrition inheritance of **`P4` Apicbase**, modifier-aware POS theoretical depletion of **`P5` Oracle MICROS Inventory**, and ERP-native BOM/PO/AP/GL integration of **`P6` Odoo Enterprise**.\n\n---\n\n## 2. In-Scope, Out-of-Scope & Suite Ownership Boundaries\n\n### 2.1 In-Scope Capabilities\n1. Culinary ingredient specifications (`HspIngredientSpec`) mapping multiple distributor pack SKUs (`OpsSupplierProfile`) to culinary UoMs with volume-to-weight density and raw-to-usable `trimYieldPct`.\n2. Cycle-free nested sub-recipes, modifier micro-recipes, and plated dishes (`HspRecipe`, `HspRecipeComponent`) with cooking shrinkage %, dynamic batch scaling (`0.5x`–`50x`), digital line-cook spec cards, and bottom-up allergen + nutrition rollup.\n3. Vendor delivery line-item price capture (`HspVendorPriceObservation`), moving-average/contract price-creep alerts, credit-memo dispute triggers, cheapest-vendor par order guides (`OpsPu",
+  "scopeOfWork": "<!-- Rapider Official App SOW & Specification | App #175: Restaurant Food Cost & Recipe Management (restaurant-food-cost-and-recipe-management) | Domain: HSP -->\n\n# #175 Restaurant Food Cost & Recipe Management (`restaurant-food-cost-and-recipe-management`) — Scope of Work (SOW)\n\n- **App Number & Name:** `#175` — Restaurant Food Cost & Recipe Management\n- **Proposed App Key:** `restaurant-food-cost-and-recipe-management`\n- **Suite / Domain Key & Model Prefix:** `HSP` (`Hsp*`)\n- **Function Category:** 18. Hospitality, Restaurants & Travel\n- **Representative Product (`P1`):** MarginEdge\n- **Combined Feature Catalog:** [../combined-features/175-restaurant-food-cost-and-recipe-management-features.md](../combined-features/175-restaurant-food-cost-and-recipe-management-features.md)\n- **Target Release Posture:** Culinary Sub-Recipe & Yield Costing, Distributor Invoice Price-Creep Engine, Shelf-to-Sheet Physical Counts, Theoretical vs. Actual (`TvA`) Variance & Menu Engineering Microapplication\n\n---\n\n## 1. Executive Outcome & Target Audience\n\n### 1.1 Business Problem Solved\nRestaurants operate on razor-thin 4%–8% net profit margins, yet most chefs and GMs rely on stale static spreadsheets created months ago—missing weekly 12% Sysco/US Foods beef or dairy price spikes, ignoring 30% fish butchery trim loss, counting walk-in coolers on clipboards out of shelf order, and discovering runaway Prime Cost 25 days after month-end. **Rapider Restaurant Food Cost & Recipe Management (`restaurant-food-cost-and-recipe-management`)** connects live distributor invoice line prices (`FinSupplierBill`) to cycle-free nested sub-recipes with exact trim/cook yields, pairs `#170` itemized `PMIX` sales & kitchen waste with blind shelf-to-sheet physical counts to isolate Theoretical vs. Actual (`TvA`) shrinkage down to the ounce, and plots live *Stars/Plowhorses/Puzzles/Dogs* menu engineering matrices natively across Rapider `HSP`, `OPS`, `FIN`, and `HR`.\n\n### 1.2 Target Personas & Progressive Disclosure\n- **SME Fast-Path Defaults (Independent Restaurants, Bakeries, Craft Cocktail Bars, Pizzerias):** Start immediately by uploading/ingesting vendor invoices to track live ingredient prices & daily Food/Bev spend %, build core top-20 dish & cocktail recipes with automatic plate-cost % badges, and run 20-minute shelf-to-sheet walk-in/bar mobile counts.\n- **Enterprise Progressive Disclosure (Multi-Unit Restaurant Groups, Central Commissaries, Hotel Executive Chefs, F&B Controllers):** Unlock multi-tier nested commissary sub-recipes with raw-to-trimmed-to-cooked yield cascades, automated allergen/nutrition inheritance pushed to `#170`, cheapest-vendor split `OpsPurchaseOrder` generation, blind count high-variance recount gates via Home `WorkItem`s, modifier-aware `TvA` variance decomposition, daily Prime Cost (COGS + Labor %) flash reports, and automated USALI inventory valuation `FinJournalEntry` postings.\n\n### 1.3 Measurable Business Outcomes\n- **2.5 to 5.0 Percentage-Point Food & Pour Cost Reduction:** Real-time vendor price-creep alerts + ounce-level `TvA` variance expose over-portioning, unrecorded bar pours, and supplier overcharges within 24–48 hours.\n- **Instant Sub-Recipe Cost Cascading:** Updating a single butter, flour, or tenderloin invoice line recalculates every dependent sub-recipe, modifier, and plated dish cost in `< 500ms` with `Decimal128` 6-decimal-place precision.\n- **50% Faster Period-End Kitchen & Bar Counts:** Physical walk-path (`Shelf-to-Sheet`) ordering with dual Case + Loose-Unit inputs cuts Sunday night inventory labor in half while feeding `inventory` (`OpsInventoryPosition`) and `acc` (`FinJournalEntry`).\n\n### 1.4 Benchmark Summary (`P1`–`P6`)\nCombines the frictionless invoice-to-plate cost cascade and *Stars/Plowhorses* menu engineering of **`P1` MarginEdge**, enterprise `TvA` variance, commissary batching, and daily Prime Cost flash of **`P2` Restaurant365**, multi-vendor usable-unit par ordering and credit-memo tracking of **`P3` MarketMan**, multi-tier trim/cook yield math, batch scaling, and allergen/nutrition inheritance of **`P4` Apicbase**, modifier-aware POS theoretical depletion of **`P5` Oracle MICROS Inventory**, and ERP-native BOM/PO/AP/GL integration of **`P6` Odoo Enterprise**.\n\n---\n\n## 2. In-Scope, Out-of-Scope & Suite Ownership Boundaries\n\n### 2.1 In-Scope Capabilities\n1. Culinary ingredient specifications (`HspIngredientSpec`) mapping multiple distributor pack SKUs (`OpsSupplierProfile`) to culinary UoMs with volume-to-weight density and raw-to-usable `trimYieldPct`.\n2. Cycle-free nested sub-recipes, modifier micro-recipes, and plated dishes (`HspRecipe`, `HspRecipeComponent`) with cooking shrinkage %, dynamic batch scaling (`0.5x`–`50x`), digital line-cook spec cards, and bottom-up allergen + nutrition rollup.\n3. Vendor delivery line-item price capture (`HspVendorPriceObservation`), moving-average/contract price-creep alerts, credit-memo dispute triggers, cheapest-vendor par order guides (`OpsPurchaseOrder`), and verified `FinSupplierBill` handoff.\n4. Walk-path ordered Shelf-to-Sheet physical count sheets (`HspKitchenCountSheet`) with blind-count variance gates and prep batch production logging.\n5. Period Theoretical vs. Actual (`TvA`) food & pour cost variance (`HspFoodCostVariance`), live *Stars/Plowhorses/Puzzles/Dogs* menu engineering matrix, daily controllable Prime Cost flash, and inventory valuation GL journal export.\n\n### 2.2 Out-of-Scope Capabilities (Delegated to Adjacent Rapider Apps)\n- **Live dining-room check entry, multi-station KDS ticket bumping, 3rd-party delivery throttling, and tip-pool calculations:** Owned by `#170 Restaurant Management & Kitchen Operations` (which emits `PMIX` & post-fire waste events to `#175`).\n- **Online diner reservations, table floor plans, and SMS waitlists:** Owned by `#171 Restaurant Reservations & Table Management`.\n- **Generic warehouse bin/pallet WMS picking, vendor AP ACH check runs, and employee payroll tax filings:** Owned by built `warehouse`, `inventory`, `procurement`, `accpayable`, `acc`, and `payroll`.\n\n### 2.3 Cross-Suite Ownership & Integration Contract\n\n| Domain / App | Owns (Canonical Models) | Integration Contract with `restaurant-food-cost-and-recipe-management` |\n| :--- | :--- | :--- |\n| **`restaurant-food-cost-and-recipe-management` (`#175` — This App)** | `HspIngredientSpec`, `HspRecipe`, `HspRecipeComponent`, `HspVendorPriceObservation`, `HspKitchenCountSheet`, `HspFoodCostVariance` | Authoritative source of truth for culinary yields, nested recipe costing, vendor price-creep history, shelf-to-sheet counts, `TvA` variance, and menu engineering. |\n| **`restaurant-management-and-kitchen-operations` (`#170` — HSP)** | `HspRestaurantOutlet`, `HspMenuItem`, `HspModifierGroup`, `HspDiningCheck` | `#175` consumes `hsp.restaurant.pmix_recorded` & `hsp.restaurant.waste_logged` for `TvA`; `#175` pushes cascaded allergen tags & margin-breach alerts (`hsp.recipe.margin_alert_raised`) to `HspMenuItem`. |\n| **`inventory`, `procurement`, `vendors` (`OPS` Suite)** | `OpsInventoryItem`, `OpsInventoryPosition`, `OpsPurchaseOrder`, `OpsSupplierProfile` | `HspIngredientSpec` extends `OpsInventoryItem` and maps `OpsSupplierProfile` packs; par guides create draft `OpsPurchaseOrder`s; finalized counts update `OpsInventoryPosition`. |\n| **`accpayable` & `acc` (`FIN` Suite)** | `FinSupplierBill`, `FinJournalEntry` | Verified vendor invoice lines stage `FinSupplierBill` in `accpayable`; approved period counts post inventory valuation/COGS `FinJournalEntry` to `acc`. |\n| **`attendance` & `payroll` (`HR` Suite) + Platform** | `HrAttendancePunch`, `HrPayrollRun`, Home `WorkItem`, `projectChannelMessage` | Reads daily labor cost totals for Prime Cost % flash; routes vendor overcharge disputes & blind-count recount gates via Home `WorkItem`s; hosts AI margin playbooks in `projectChannelMessage`. |\n\n---\n\n## 3. Primary Web Pages & Sidebar Navigation Architecture\n\nTo comply strictly with the **Rapider Minimum 3 Items Sidebar Rule**, all visible pages are organized into **3 sidebar sections (`Culinary & Recipes`, `Purchasing & Counts`, `Margin & Variance`) containing 3 visible items each (9 visible menu items total)**. Detail views and creation/edit drawers set `displayOnMenu: false`.\n\n| # | Route | Page Title | Sidebar Section | Menu Visible | Key Components & UX |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| 1 | `dashboard` | Prime Cost & Margin Pulse | `Culinary & Recipes` | `true` (Order 1) | KPI cards (`countSWR`): Theoretical vs. Actual Food Cost %, Pour Cost %, Daily Prime Cost %, Active Price-Creep Alerts, Margin-Breached Dishes. |\n| 2 | `recipes` | Recipe & Sub-Recipe Book | `Culinary & Recipes` | `true` (Order 2) | Searchable `HspRecipe` catalog (`PLATED_DISH`, `SUB_RECIPE_BATCH`, `MODIFIER_SPEC`, `COCKTAIL`) via `findSWR`, `#activeFilterTagsBar` with `Clear all`, live food-cost % vs. target badge, clickable recipe name -> `recipe-detail`. |\n| 3 | `ingredients` | Ingredients, Packs & Yields | `Culinary & Recipes` | `true` (Order 3) | `HspIngredientSpec` table showing AP pack price, `trimYieldPct`, usable EP cost/oz (`Decimal128`), allergen badges, 30-day price trend sparkline. |\n| 4 | `vendor-prices` | Invoice Lines & Price Creep | `Purchasing & Counts` | `true` (Order 4) | `<rapider-kanban>` workflow (`EXTRACTED_NEEDS_MAP`, `PRICE_SPIKE_REVIEW`, `CREDIT_DISPUTE_OPEN`, `VERIFIED_PUSHED_AP`) + line ledger (`HspVendorPriceObservation`). |\n| 5 | `par-orders` | Smart Par Order Guide | `Purchasing & Counts` | `true` (Order 5) | Multi-vendor usable-unit price comparison matrix (`OpsSupplierProfile` with `<rapider-phone-input>` rep contact), par shortage quantities, one-click draft `OpsPurchaseOrder` push. |\n| 6 | `count-sheets` | Shelf-to-Sheet Counts | `Purchasing & Counts` | `true` (Order 6) | `HspKitchenCountSheet` directory (`WALK_IN_COOLER`, `FREEZER`, `DRY_STORAGE`, `BAR_RAIL`), blind-count status, clickable `#CNT-...` -> `count-sheet-detail`. |\n| 7 | `tva-variance` | Theoretical vs. Actual (TvA) | `Margin & Variance` | `true` (Order 7) | `HspFoodCostVariance` breakdown by category & top dollar leak ingredients (Actual vs. `#170` `PMIX` Theoretical vs. Logged Waste = Unexplained Shrinkage `\\$`). |\n| 8 | `menu-engineering` | Menu Engineering Matrix | `Margin & Variance` | `true` (Order 8) | Interactive 4-quadrant matrix (`STAR`, `PLOWHORSE`, `PUZZLE`, `DOG`) + sortable contribution-margin table with What-If price simulator. |\n| 9 | `cogs-gl-close` | COGS Valuation & GL Sync | `Margin & Variance` | `true` (Order 9) | Beginning + Purchases - Ending COGS summary by USALI category (`Food`, `Liquor`, `Wine`, `Beer`), `FinSupplierBill` & `FinJournalEntry` sync audit. |\n| 10 | `recipe-detail` | Culinary Spec Card & Cost 360 | *(Hidden)* | `false` | Full `HspRecipe` workspace (`?id=...`): interactive batch scaler (`1x`, `4x`, `10x`), nested `HspRecipeComponent` tree, AP/EP yield breakdown, plating instructions, inherited allergens/kcal, AI *Plowhorse* tips (`projectChannelMessage`), `Back to Recipes`. |\n| 11 | `count-sheet-detail` | Mobile Walk-Path Counter | *(Hidden)* | `false` | Ordered storage-zone entry grid (`?id=...`) accepting `Cases + Loose Units`, blind-audit recount warnings, supervisor sign-off & `Back to Count Sheets`. |\n| 12 | `recipe-component-drawer` | Create Recipe / Add Ingredient | *(Hidden)* | `false` | Sliding drawer enforcing cycle-free sub-recipe selection, UoM conversion preview, `Decimal128` EP cost calculation, `try/catch/finally` save reset, auto-close. |\n| 13 | `invoice-line-drawer` | Map SKU / Flag Price Dispute | *(Hidden)* | `false` | Sliding drawer mapping vendor invoice SKU to `HspIngredientSpec` or raising a short-ship/price-spike Home `WorkItem` dispute before `FinSupplierBill` posting. |\n\n---\n\n## 4. Canonical Data Models (`Hsp*` — 6 Models)\n\nAll models omit `projectId`, use platform UUIDs (`00000000-xxxx-xxxx-xxxx-xxxxxxxxxxxx` in seed data), enforce optimistic `version`, and store all unit costs (6-decimal precision), yield ratios, valuations, and variances as `Decimal128`.\n\n| Model Name | Key Fields & Types | Relationships & External Refs | Invariants & Lifecycle |\n| :--- | :--- | :--- | :--- |\n| **`HspIngredientSpec`** | `code` (String, unique), `name` (String), `usaliCategory` (`FOOD_PROTEIN`, `FOOD_PRODUCE`, `FOOD_DAIRY`, `FOOD_DRY`, `LIQUOR`, `WINE`, `BEER`, `NA_BEV`, `PACKAGING`), `baseRecipeUom` (`GRAM`, `ML`, `EACH`), `trimYieldPct` (`Decimal128`, `1..100`), `latestApCostPerBaseUom` (`Decimal128`), `effectiveEpCostPerBaseUom` (`Decimal128`), `movingAvg30dApCost` (`Decimal128`), `priceSpikeThresholdPct` (`Decimal128`), `allergens` (String[]), `kcalPer100g` (`Decimal128`), `vendorPacks` (JSON array of `{ supplierId, vendorSku, packDesc, baseUomQtyPerPack: Decimal128, lastPackPrice: Decimal128, repPhone }`) | `inventoryItemId` -> `OpsInventoryItem.id` (1:1), `preferredSupplierId` -> `OpsSupplierProfile.id` | `effectiveEpCostPerBaseUom == latestApCostPerBaseUom / (trimYieldPct / 100)`; `0 < trimYieldPct <= 100`. |\n| **`HspRecipe`** | `recipeCode` (String, unique), `name` (String), `recipeKind` (`PLATED_DISH`, `SUB_RECIPE_BATCH`, `MODIFIER_SPEC`, `COCKTAIL`), `batchYieldQty` (`Decimal128`), `batchYieldUom` (String), `portionsPerBatch` (`Decimal128`), `cookShrinkagePct` (`Decimal128`, `0..99`), `totalBatchCost` (`Decimal128`), `costPerPortion` (`Decimal128`), `targetFoodCostPct` (`Decimal128`), `currentMenuPrice` (`Decimal128`, nullable), `actualFoodCostPct` (`Decimal128`, nullable), `contributionMargin` (`Decimal128`, nullable), `engineeringQuadrant` (`STAR`, `PLOWHORSE`, `PUZZLE`, `DOG`, `UNRANKED`), `inheritedAllergens` (String[]), `prepStepsMarkdown` (Text), `shelfLifeHours` (Int), `status` (`DRAFT`, `ACTIVE_PUBLISHED`, `SANDBOX_SIMULATION`, `ARCHIVED`) | `outletId` -> `HspRestaurantOutlet.id` (`#170`), `linkedMenuItemId` -> `HspMenuItem.id` (`#170`, optional) | **Cycle-Free DAG Invariant:** A sub-recipe may never directly or transitively reference itself; `costPerPortion == totalBatchCost / portionsPerBatch`; `inheritedAllergens` equals union of all child `HspRecipeComponent` allergens. |\n| **`HspRecipeComponent`** | `componentType` (`RAW_INGREDIENT`, `NESTED_SUB_RECIPE`), `quantity` (`Decimal128`), `uom` (String), `overrideTrimYieldPct` (`Decimal128`, nullable), `extendedComponentCost` (`Decimal128`), `sortOrder` (Int), `prepNote` (String) | `parentRecipeId` -> `HspRecipe.id`, `ingredientSpecId` -> `HspIngredientSpec.id` (nullable), `childSubRecipeId` -> `HspRecipe.id` (nullable) | Exactly one of `ingredientSpecId` or `childSubRecipeId` is non-null; cost updates cascade bottom-up automatically. |\n| **`HspVendorPriceObservation`** | `invoiceNumber` (String), `deliveryDate` (Date), `vendorSku` (String), `rawDescription` (String), `packsReceived` (`Decimal128`), `catchWeightTotal` (`Decimal128`, nullable), `packUnitPrice` (`Decimal128`), `computedBaseUomCost` (`Decimal128`), `priceDeltaPctVsAvg` (`Decimal128`), `disputeCreditRequestedAmount` (`Decimal128`), `status` (`EXTRACTED_NEEDS_MAP`, `PRICE_SPIKE_REVIEW`, `CREDIT_DISPUTE_OPEN`, `VERIFIED_PUSHED_AP`) | `outletId` -> `HspRestaurantOutlet.id`, `supplierId` -> `OpsSupplierProfile.id`, `mappedIngredientSpecId` -> `HspIngredientSpec.id`, `supplierBillId` -> `FinSupplierBill.id` (`accpayable`) | If `priceDeltaPctVsAvg > priceSpikeThresholdPct`, transitions to `PRICE_SPIKE_REVIEW` and alerts Chef/GM; `VERIFIED_PUSHED_AP` updates `HspIngredientSpec.latestApCostPerBaseUom` and cascades dependent `HspRecipe` costs. |\n| **`HspKitchenCountSheet`** | `countCode` (String, unique), `countPeriodDate` (Date), `storageZone` (`WALK_IN_COOLER`, `FREEZER`, `DRY_STORAGE`, `BAR_SPEED_RAIL`, `WINE_CELLAR`, `ALL_ZONES`), `isBlindCount` (Boolean), `lines` (JSON array of `{ shelfOrder, ingredientSpecId, fullPacksCount: Decimal128, looseUomQty: Decimal128, unitCostSnapshot: Decimal128, extendedValue: Decimal128, recountFlagged: Boolean }`), `totalCountValuation` (`Decimal128`), `status` (`OPEN_COUNTING`, `RECOUNT_REQUIRED`, `APPROVED_LOCKED`) | `outletId` -> `HspRestaurantOutlet.id`, `countedByEmployeeId` -> `HrEmployee.id`, `glJournalEntryId` -> `FinJournalEntry.id` | When `isBlindCount == true`, API masks expected theoretical stock until line entry is submitted; immutable once `APPROVED_LOCKED`. |\n| **`HspFoodCostVariance`** | `periodStartDate` (Date), `periodEndDate` (Date), `beginningInventoryValue` (`Decimal128`), `purchasesNetValue` (`Decimal128`), `endingInventoryValue` (`Decimal128`), `actualCogsAmount` (`Decimal128`), `theoreticalCogsAmount` (`Decimal128`), `loggedWasteAmount` (`Decimal128`), `unexplainedVarianceAmount` (`Decimal128`), `netFbSalesAmount` (`Decimal128`), `actualCogsPct` (`Decimal128`), `theoreticalCogsPct` (`Decimal128`), `topVarianceItems` (JSON array), `status` (`COMPUTED_DRAFT`, `PUBLISHED_CLOSED`) | `outletId` -> `HspRestaurantOutlet.id`, `openingCountSheetId` -> `HspKitchenCountSheet.id`, `closingCountSheetId` -> `HspKitchenCountSheet.id` | `actualCogsAmount == beginningInventoryValue + purchasesNetValue - endingInventoryValue`; `unexplainedVarianceAmount == actualCogsAmount - theoreticalCogsAmount - loggedWasteAmount`. |\n\n---\n\n## 5. Core End-to-End User Journeys\n\n### Journey 1: Supplier Price-Creep Ingestion -> Instant Sub-Recipe & Plate Margin Alert\n1. A Thursday delivery invoice from Sysco (`INV-99812`) arrives on `#/vendor-prices` showing Heavy Cream up `+16.4%` and Prime Beef Chuck up `+11.2%` (`HspVendorPriceObservation`).\n2. Mapping and verifying the invoice updates `HspIngredientSpec.latestApCostPerBaseUom` (`Decimal128`), stages `FinSupplierBill` in `accpayable`, and cascades instantaneously through *House Burger Grind Batch* (`SUB_RECIPE_BATCH`) -> *Double Smash Burger* (`PLATED_DISH`), pushing its food-cost % from `28.4%` to `31.9%` (breaching its `30.0%` target).\n3. `#175` highlights *Double Smash Burger* as a `PLOWHORSE` margin breach on `#/dashboard` and `#/menu-engineering`, allowing the Chef/GM to test a `+\\$1.00` price adjustment or `0.5 oz` cheese tweak in the What-If sandbox before publishing to `#170`.\n\n### Journey 2: Short-Ship & Contract Overcharge Dispute via Rapider Home `WorkItem`\n1. Dockside receiving notices `INV-99812` billed `40 lbs` of Halibut at `\\$19.50/lb` (above the `\\$16.75/lb` contracted cap, and actual scale weight was `36.5 lbs`).\n2. In `invoice-line-drawer`, the Sous-Chef logs `catchWeightTotal = 36.5` and requests a `\\$168.75` vendor credit (`CREDIT_DISPUTE_OPEN`), creating a Rapider Home `WorkItem` for AP / Supplier Rep follow-up (`<rapider-phone-input>`) so `accpayable` withholds the disputed `\\$168.75` until the distributor credit memo arrives.\n\n### Journey 3: Sunday Night Blind Shelf-to-Sheet Count & High-Variance Recount Gate\n1. At Sunday `22:30` close, the Kitchen Lead opens `#CNT-2026-1029` on `#/count-sheet-detail` (`isBlindCount = true`), walking Shelf 1 -> Shelf 8 in exact physical order and entering `3 Cases + 2 Loose Ribeyes` without seeing theoretical computer stock.\n2. Upon submission, `#175` detects a `-\\$490.00` discrepancy on Ribeyes (`> \\$250.00` threshold), automatically flipping status to `RECOUNT_REQUIRED` and spawning a GM Home `WorkItem`.\n3. Recount discovers `1 Case` stored in the secondary meat aging drawer; updating the count clears the variance, locks `APPROVED_LOCKED`, updates `OpsInventoryPosition` in `inventory`, and posts the USALI COGS `FinJournalEntry` to `acc`.\n\n### Journey 4: Theoretical vs. Actual (`TvA`) Variance & Grounded AI Root-Cause Investigation\n1. On `#/tva-variance`, the Bar & Kitchen Manager reviews weekly `HspFoodCostVariance`: `Actual Pour Cost = 22.8%` vs. `Theoretical Pour Cost = 18.9%`, with `-\\$385.00` `unexplainedVarianceAmount` concentrated in Repo Tequila (`loggedWasteAmount = \\$24.00` spilled).\n2. In the linked `projectChannelMessage` thread, the AI Variance Investigator cites `#170` `PMIX` (`312 Spicy Margaritas sold` at `2.0 fl_oz` spec = `624 fl_oz` theoretical vs. `768 fl_oz` actual bottle depletion), pinpointing free-hand `2.5 fl_oz` over-pouring on the service bar well.\n\n### Journey 5: Multi-Filter Recipe Search & Click-Through State Restoration\n1. On `#/recipes`, the Executive Chef searches `Sauce` and filters `Kind: \"SUB_RECIPE_BATCH\"`, clicks *House Marinara Batch* to open `#/recipe-detail?id=...` (scaling the card to `4x` for morning prep and checking inherited allergens), and clicks **Back to Recipe Book**—returning cleanly to `#/recipes` with `#activeFilterTagsBar` chips preserved.\n\n---\n\n## 6. Consolidated Feature Priorities & Work Packages\n\n### `P0` Foundation Work Packages (Mandatory MVP Launch)\n- **WP-P0-1: Ingredients, Vendor Packs & Trim/Cook Yield Math (`RFC-001`, `RFC-002`):** `HspIngredientSpec` (`#/ingredients`), `OpsInventoryItem` / `OpsSupplierProfile` pack mapping, `Decimal128` AP-to-EP `trimYieldPct`, and volume-weight conversions.\n- **WP-P0-2: Nested Sub-Recipes, Modifier Specs & Line-Cook Cards (`RFC-004`, `RFC-005`, `RFC-006`):** `HspRecipe`, `HspRecipeComponent` (`#/recipes`, `#/recipe-detail`, `recipe-component-drawer`), cycle-free DAG check, instant cost cascading, and interactive batch scaling.\n- **WP-P0-3: Vendor Invoice Price-Creep Engine & AP Handoff (`RFC-008`, `RFC-009`):** `HspVendorPriceObservation` (`#/vendor-prices`, `invoice-line-drawer`), `<rapider-kanban>` review stages, price-spike alerts, Home `WorkItem` credit disputes, and `FinSupplierBill` staging.\n- **WP-P0-4: Shelf-to-Sheet Counts, `TvA` Variance & Menu Engineering (`RFC-012`, `RFC-013`, `RFC-014`, `RFC-016`):** `HspKitchenCountSheet` (`#/count-sheets`, `#/count-sheet-detail`), `HspFoodCostVariance` (`#/tva-variance`) consuming `#170` `PMIX` + waste, and `#/menu-engineering` (*Stars/Plowhorses/Puzzles/Dogs*).\n\n### `P1` Scale & Enterprise Work Packages\n- **WP-P1-1: Allergen/Nutrition Rollup, Prep Batches & Par Split-POs (`RFC-003`, `RFC-007`, `RFC-010`, `RFC-011`):** Bottom-up allergen push to `#170`, commissary/prep batch stock moves, `#/par-orders` cheapest-vendor `OpsPurchaseOrder` builder, and dockside catch-weight/temp receiving.\n- **WP-P1-2: Blind-Count Audits, Prime Cost Flash, What-If Sandbox & GL Close (`RFC-015`, `RFC-017`, `RFC-018`, `RFC-019`, `RFC-020`):** Blind count masking + Home `WorkItem` recount gate, target food-cost breach alerts, daily COGS + `HR` Labor Prime Cost %, recipe simulation clones, and `#/cogs-gl-close` `FinJournalEntry` sync.\n\n### `P2` Adjacent & Grounded AI Work Packages\n- **WP-P2-1: AI Invoice SKU Matcher & `TvA` Portioning Investigator (`RFC-021`, `RFC-022`):** Human-confirmed vendor SKU mapping suggestions and grounded `TvA` variance root-cause briefs in `projectChannelMessage`.\n- **WP-P2-2: AI *Plowhorse*/*Puzzle* Playbooks & Zero-Waste Trim Ideation (`RFC-023`, `RFC-024`):** Margin optimization recommendations and trim cross-utilization ideas.\n\n---\n\n## 7. Roles, Permissions & Field-Level Governance\n\n| Role | Permitted Actions | Restricted / Field-Level Boundaries |\n| :--- | :--- | :--- |\n| **Line Cook / Prep Cook** | View `#/recipe-detail` digital spec cards, portion photos, allergens, and interactive batch scaler; enter assigned `HspKitchenCountSheet` shelf counts. | Blind counts hide expected stock quantities; cooks see prep specs without restaurant P&L profit margins, `HR` labor costs, or AP bank details. |\n| **Sous-Chef / Bar Manager** | Create/edit draft `HspRecipe`s & `HspIngredientSpec`s; map `HspVendorPriceObservation` SKUs; flag short-ship disputes; generate draft `OpsPurchaseOrder`s. | Cannot bypass high-variance blind recount gates or publish `FinJournalEntry` COGS valuations without GM/Controller approval. |\n| **Executive Chef / Restaurant GM** | Publish `ACTIVE_PUBLISHED` recipes & allergen cascades to `#170`; approve recount & vendor-dispute Home `WorkItem`s; run What-If menu engineering updates. | Cannot alter historical `APPROVED_LOCKED` count sheets or closed `PUBLISHED_CLOSED` `HspFoodCostVariance` snapshots. |\n| **F&B Controller / Accountant** | Verify `FinSupplierBill` price tolerances, audit multi-outlet `TvA` & Prime Cost, lock period `HspFoodCostVariance`, and post `FinJournalEntry` to `acc`. | Full immutable audit trail across all cost overrides, inventory valuation adjustments, and GL postings. |\n\n---\n\n## 8. Technical APIs, Guarded Commands, Events & `requiredWorkflows`\n\n### 8.1 Guarded Domain Commands\nEvery mutating command enforces `{ idempotencyKey, correlationId, expectedVersion }`:\n- `hsp.foodcost.upsertRecipeAndCascade` — Validates cycle-free sub-recipe DAG, computes exact `Decimal128` AP-to-EP trim & cook shrinkage costs across all parent recipes, updates `inheritedAllergens`, and emits `hsp.recipe.margin_alert_raised` if `actualFoodCostPct > targetFoodCostPct`.\n- `hsp.foodcost.verifyVendorInvoiceLines` — Updates `HspIngredientSpec.latestApCostPerBaseUom`, triggers recipe cost cascade, stages `FinSupplierBill` in `accpayable`, or creates a dispute Home `WorkItem` when `CREDIT_DISPUTE_OPEN`.\n- `hsp.foodcost.submitAndAuditCountSheet` — Computes `Decimal128` extended values; if any item exceeds variance threshold under `isBlindCount`, sets `RECOUNT_REQUIRED` + creates Home `WorkItem`; upon approval, updates `OpsInventoryPosition`.\n- `hsp.foodcost.computePeriodTvAAndPostGl` — Aggregates `#170` `PMIX` theoretical usage + logged waste against `Actual Usage`, persists `HspFoodCostVariance`, refreshes `engineeringQuadrant` (`STAR`/`PLOWHORSE`/`PUZZLE`/`DOG`), and emits `FinJournalEntry` to `acc`.\n\n### 8.2 Published & Consumed Kafka Domain Events\n- **Published:** `hsp.recipe.cost_cascaded`, `hsp.recipe.allergens_updated`, `hsp.recipe.margin_alert_raised`, `hsp.foodcost.price_spike_detected`, `hsp.foodcost.tva_published`.\n- **Consumed:** `hsp.restaurant.pmix_recorded` & `hsp.restaurant.waste_logged` (from `#170`), `ops.purchase_order.received` (from `procurement`), `fin.supplier_bill.posted` (from `accpayable`).\n\n### 8.3 `requiredWorkflows` (Declared in `app.manifest.json`)\n1. `wf-hsp-invoice-price-cascade-and-spike-check` — Recomputes dependent sub-recipes/dishes on every verified `HspVendorPriceObservation` and raises price-spike/margin-breach alerts (`RFC-004`, `RFC-009`, `RFC-017`).\n2. `wf-hsp-allergen-sync-to-menus` — Pushes updated `inheritedAllergens` onto linked `#170` `HspMenuItem`s (`RFC-003`).\n3. `wf-hsp-blind-count-recount-workitem` — Routes high-dollar blind count discrepancies and vendor short-ship credit disputes via Rapider Home `WorkItem`s (`RFC-009`, `RFC-015`).\n4. `wf-hsp-weekly-tva-and-menu-quadrant-refresh` — Computes weekly `TvA` variance, Prime Cost flash, and *Stars/Plowhorses/Puzzles/Dogs* classifications (`RFC-013`, `RFC-016`, `RFC-018`).\n\n### 8.4 Grounded Rapider AI Guardrails\n- AI Invoice SKU Matcher, `TvA` Investigator, and Menu Optimization Playbooks cite exact `HspIngredientSpec`, `HspRecipe`, `HspVendorPriceObservation`, and `HspFoodCostVariance` IDs within RBAC scope.\n- AI **never** auto-approves disputed supplier invoices, never alters published `#170` customer menu prices, never changes allergen declarations without Chef verification, and never posts `FinJournalEntry` adjustments autonomously.\n\n---\n\n## 9. Security, Privacy, Compliance & Non-Functional Requirements\n\n- **Proprietary Culinary IP Protection:** Signature recipe ratios, house spice blends, and commissary formulas are strictly tenant-isolated and role-gated (preventing unauthorized bulk CSV export of proprietary culinary IP).\n- **FDA Menu Labeling & EU 1169/2011 Allergen Traceability:** Every allergen/calorie rollup preserves versioned ingredient lineage for regulatory inspection.\n- **GAAP / USALI Inventory Valuation Integrity:** Supports consistent FIFO / Latest-Invoice / Moving-Average valuation snapshots per `FinLegalEntity` policy, with append-only `APPROVED_LOCKED` count sheets.\n- **Walk-In Cooler & Kitchen Tablet Ergonomics:** WCAG 2.2 AA compliant, large tap targets for cold-room gloved hands, and full dark/light theme parity across `1440px` controller desks, `768px` prep-line tablets, and `390px` count-sheet phones.\n\n---\n\n## 10. Deterministic Acceptance Criteria\n\n1. **Sidebar Minimum-3-Items Compliance:** `app.manifest.json` defines 3 visible sidebar sections (`Culinary & Recipes`, `Purchasing & Counts`, `Margin & Variance`) containing 3 visible items each (`displayOnMenu: true`); detail and drawer routes set `displayOnMenu: false`.\n2. **Sub-Recipe Cycle-Free DAG Guard:** Attempting to add Sub-Recipe `A` into Sub-Recipe `B` when `B` is already a direct or transitive component of `A` is deterministically rejected with a `422 Unprocessable Entity` cycle error.\n3. **Exact `Decimal128` Trim Yield & Cascaded Costing:** An ingredient at `\\$10.00/lb` AP with `trimYieldPct == 80.00%` computes `effectiveEpCost == \\$12.50/lb` in `Decimal128`, and updating its invoice price instantaneously recalculates all parent sub-recipes and plated dishes.\n4. **Bottom-Up Allergen Inheritance:** Adding `PEANUT` to a raw `HspIngredientSpec` automatically appends `PEANUT` to `inheritedAllergens` on every parent sub-recipe and plated `HspRecipe`.\n5. **Blind Count Masking & High-Variance Recount Gate:** Querying an `OPEN_COUNTING` `HspKitchenCountSheet` with `isBlindCount == true` as a Line Cook omits expected stock quantities; submitting a discrepancy above threshold sets `RECOUNT_REQUIRED` and creates a Rapider Home `WorkItem`.\n6. **Deterministic `TvA` Variance Conservation:** `HspFoodCostVariance` satisfies `actualCogsAmount == beginningInventoryValue + purchasesNetValue - endingInventoryValue` and `unexplainedVarianceAmount == actualCogsAmount - theoreticalCogsAmount - loggedWasteAmount` to `0.01` `Decimal128` precision.\n7. **Menu Engineering Quadrant Classification:** Dishes above category mean popularity and above category mean `contributionMargin` classify deterministically as `STAR` (and correspondingly `PLOWHORSE`, `PUZZLE`, `DOG`).\n8. **Custom Elements Adoption:** Supplier rep phone inputs use `<rapider-phone-input>` and `#/vendor-prices` renders invoice review stages via `<rapider-kanban>`.\n9. **SWR Clean Query & Optimistic UI Standard:** Initial reads invoke `findSWR` / `countSWR` without `isDeleted` query filters, optimistically update local state + clear SWR cache on drawer save/delete, and reset save buttons inside `finally`.\n10. **Table Action & Click-Through Navigation Standard:** Data tables omit standalone `View` buttons; clicking Recipe Name or `#CNT-...` navigates to `#/recipe-detail?id=...` or `#/count-sheet-detail?id=...` without `<base href>` 404 hijacking, and `Back` restores filter state.\n11. **Search, `#activeFilterTagsBar` & `Clear all`:** Filtering recipes, ingredients, or invoice lines renders HTML-escaped chips in `#activeFilterTagsBar` with `✕` dismissal and `Clear all` reset.\n12. **Theme & Button Contrast Compliance:** All 13 routes pass `validate_theme` in dark and light modes with `#ffffff !important` text on primary and destructive buttons and zero native `window.alert`/`confirm`/`prompt`.\n",
+  "thumbnailUrl": "",
+  "isolationScope": "ENTERPRISE_SHARED",
+  "dataModels": [
+    {
+      "name": "FinJournalEntry",
+      "title": "Journal Entry",
+      "description": "A financial transaction recorded in the ledger.",
+      "domainName": "Rapider Finance Suite",
+      "domainKey": "FIN",
+      "datatableName": "FinJournalEntry",
+      "dataTableName": "FinJournalEntry",
+      "sqlTableName": "fin_journal_entry",
+      "isolationScope": "ENTERPRISE_SHARED_GOVERNED",
+      "titleFieldTemplate": "{{ entryDate }} - {{ description }}",
+      "scope": {
+        "where": {}
+      },
+      "aiAgentConfig": {
+        "vectorSearchFields": [
+          "description"
+        ],
+        "planning": {
+          "availableOperations": [
+            "create",
+            "update",
+            "read",
+            "delete"
+          ]
+        },
+        "entityItemCreate": {
+          "requiredFields": [
+            "ledgerId",
+            "entryDate",
+            "status"
+          ],
+          "immutableFields": [
+            "isDeleted"
+          ],
+          "requiredRelations": [
+            "lines"
+          ],
+          "autoGenerateFields": [],
+          "additionalPrompt": "Ensure total debits equal total credits in the lines.",
+          "requireUserConfirmation": true,
+          "customValidationPrompt": ""
+        },
+        "entityItemUpdate": {
+          "immutableFields": [
+            "ledgerId"
+          ],
+          "autoGenerateFields": [],
+          "additionalPrompt": "",
+          "requireUserConfirmation": true,
+          "customValidationPrompt": "",
+          "restrictedStates": [
+            {
+              "description": "Cannot modify posted journal entries.",
+              "where": {}
+            }
+          ]
+        },
+        "entityRead": {
+          "defaultPageSize": 20,
+          "defaultContextLimit": 10,
+          "hiddenFields": [],
+          "maskedFields": [],
+          "additionalPrompt": ""
+        },
+        "entityItemDelete": {
+          "requireCaptchaConfirmation": true,
+          "cascadingRelations": [
+            "lines"
+          ],
+          "restrictedStates": [
+            {
+              "description": "Cannot delete posted journal entries.",
+              "where": {}
+            }
+          ]
+        }
+      },
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Primary key UUID.",
+          "isPrimaryKey": true,
+          "isRequired": true,
+          "isHidden": false,
+          "isArray": false,
+          "defaultFn": "uuidv4"
+        },
+        {
+          "name": "ledgerId",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "entryDate",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "isDeleted",
+          "type": "boolean",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        }
+      ],
+      "relations": [
+        {
+          "name": "ledger",
+          "type": "belongsTo",
+          "sourceModel": "FinJournalEntry",
+          "sourceField": "ledgerId",
+          "targetModel": "FinLedger",
+          "targetField": "id",
+          "throughModel": null,
+          "description": "The ledger this entry belongs to."
+        },
+        {
+          "name": "lines",
+          "type": "hasMany",
+          "sourceModel": "FinJournalEntry",
+          "sourceField": "id",
+          "targetModel": "FinJournalEntryLine",
+          "targetField": "journalEntryId",
+          "throughModel": null,
+          "description": "Lines of the journal entry."
+        }
+      ]
+    },
+    {
+      "name": "FinSupplierBill",
+      "title": "Supplier Bill",
+      "description": "Canonical liability record representing an invoice received from a supplier.",
+      "domainName": "Rapider Finance Suite",
+      "domainKey": "FIN",
+      "datatableName": "FinSupplierBill",
+      "dataTableName": "FinSupplierBill",
+      "sqlTableName": "fin_supplier_bill",
+      "isolationScope": "ENTERPRISE_SHARED_GOVERNED",
+      "titleFieldTemplate": "{{ billNumber }} - {{ totalAmount }}",
+      "scope": {
+        "where": {}
+      },
+      "aiAgentConfig": {
+        "vectorSearchFields": [
+          "billNumber",
+          "poNumber",
+          "notes"
+        ],
+        "planning": {
+          "availableOperations": [
+            "create",
+            "update",
+            "read",
+            "delete"
+          ]
+        },
+        "entityItemCreate": {
+          "requiredFields": [
+            "billNumber",
+            "supplierId",
+            "totalAmount"
+          ],
+          "immutableFields": [
+            "isDeleted"
+          ],
+          "requiredRelations": [
+            "supplier"
+          ],
+          "autoGenerateFields": [
+            "status",
+            "matchedStatus"
+          ],
+          "additionalPrompt": "Verify due date matches supplier payment terms.",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": "Ensure totalAmount is a positive decimal number."
+        },
+        "entityItemUpdate": {
+          "immutableFields": [
+            "billNumber"
+          ],
+          "autoGenerateFields": [],
+          "additionalPrompt": "Updating an approved bill may require re-approval.",
+          "requireUserConfirmation": true,
+          "customValidationPrompt": "",
+          "restrictedStates": [
+            {
+              "description": "Cannot modify paid bills.",
+              "where": {
+                "status": "Paid"
+              }
+            }
+          ]
+        },
+        "entityRead": {
+          "defaultPageSize": 20,
+          "defaultContextLimit": 30,
+          "hiddenFields": [],
+          "maskedFields": [],
+          "additionalPrompt": ""
+        },
+        "entityItemDelete": {
+          "requireCaptchaConfirmation": true,
+          "cascadingRelations": [
+            "lines"
+          ],
+          "restrictedStates": [
+            {
+              "description": "Cannot delete paid bills.",
+              "where": {
+                "status": "Paid"
+              }
+            }
+          ]
+        }
+      },
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Primary key UUID.",
+          "isPrimaryKey": true,
+          "isRequired": true,
+          "isHidden": false,
+          "isArray": false,
+          "defaultFn": "uuidv4"
+        },
+        {
+          "name": "billNumber",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "supplierId",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "poNumber",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "billDate",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "dueDate",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "subtotal",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "taxAmount",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "totalAmount",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "matchedStatus",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "approvalStatus",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "paymentStatus",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "ocrExtractionConfidence",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "fileAttachmentRef",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "isDeleted",
+          "type": "boolean",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        },
+        {
+          "name": "supplierRef",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "vendorNumber",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "receivedAt",
+          "type": "date",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "documentRef",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "coding",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "tax",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "totals",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "matching",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        }
+      ],
+      "relations": []
+    },
+    {
+      "name": "HrAttendancePunch",
+      "title": "Clock Punch Event",
+      "description": "Append-only clock punch events recording time-in, time-out, break intervals, and hardware source.",
+      "domainName": "Rapider HR & Talent Suite",
+      "domainKey": "HR",
+      "datatableName": "HrAttendancePunch",
+      "dataTableName": "HrAttendancePunch",
+      "sqlTableName": "hr_attendance_punch",
+      "isolationScope": "ENTERPRISE_SHARED_WITH_CONFIDENTIAL_VAULTS",
+      "titleFieldTemplate": "{{ workerName }}: {{ eventType }} @ {{ occurredAt }}",
+      "scope": {
+        "where": {}
+      },
+      "aiAgentConfig": {
+        "vectorSearchFields": [
+          "workerName",
+          "eventType",
+          "captureSource"
+        ],
+        "planning": {
+          "availableOperations": [
+            "create",
+            "read"
+          ]
+        },
+        "entityItemCreate": {
+          "requiredFields": [
+            "workerName",
+            "eventType",
+            "occurredAt"
+          ],
+          "immutableFields": [
+            "isDeleted"
+          ],
+          "requiredRelations": [],
+          "autoGenerateFields": [],
+          "additionalPrompt": "Record immutable punch with event type and timestamp.",
+          "requireUserConfirmation": false
+        },
+        "entityItemUpdate": {
+          "immutableFields": [
+            "occurredAt",
+            "captureSource"
+          ],
+          "autoGenerateFields": [],
+          "requireUserConfirmation": true
+        },
+        "entityItemRead": {
+          "requireUserConfirmation": false
+        },
+        "entityItemDelete": {
+          "requireUserConfirmation": true
+        }
+      },
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Primary key UUID.",
+          "isPrimaryKey": true,
+          "isRequired": true,
+          "isHidden": false,
+          "isArray": false,
+          "defaultFn": "uuidv4"
+        },
+        {
+          "name": "workerId",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "workerName",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "employmentId",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "eventType",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "occurredAt",
+          "type": "datetime",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "timeZone",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "captureSource",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "deviceRef",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "locationRef",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "correctionOfPunchId",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "isDeleted",
+          "type": "boolean",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Lifecycle or record status.",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        }
+      ],
+      "relations": []
+    },
+    {
+      "name": "HrPayrollRun",
+      "title": "Payroll Run",
+      "description": "Represents a single cycle execution of payroll for a pay group with immutable input snapshots.",
+      "domainName": "Rapider HR & Talent Suite",
+      "domainKey": "HR",
+      "datatableName": "HrPayrollRun",
+      "dataTableName": "HrPayrollRun",
+      "sqlTableName": "hr_payroll_run",
+      "isolationScope": "ENTERPRISE_SHARED_WITH_CONFIDENTIAL_VAULTS",
+      "titleFieldTemplate": "{{ runNumber }} - {{ periodStartDate }} to {{ periodEndDate }} ({{ status }})",
+      "scope": {
+        "where": {}
+      },
+      "aiAgentConfig": {
+        "vectorSearchFields": [
+          "runNumber",
+          "status",
+          "payGroupId"
+        ],
+        "planning": {
+          "availableOperations": [
+            "create",
+            "update",
+            "read",
+            "delete"
+          ]
+        },
+        "entityItemCreate": {
+          "requiredFields": [
+            "payGroupId",
+            "periodStartDate",
+            "periodEndDate",
+            "paymentDate"
+          ],
+          "immutableFields": [
+            "isDeleted"
+          ],
+          "requiredRelations": [
+            "payGroup"
+          ],
+          "autoGenerateFields": [
+            "runNumber"
+          ],
+          "additionalPrompt": "Ensure paymentDate is on or after periodEndDate.",
+          "requireUserConfirmation": false
+        },
+        "entityItemUpdate": {
+          "immutableFields": [
+            "runNumber",
+            "payGroupId"
+          ],
+          "autoGenerateFields": [],
+          "additionalPrompt": "Cannot modify runs in Finalized or Paid status without correction workflow.",
+          "requireUserConfirmation": true,
+          "restrictedStates": []
+        },
+        "entityRead": {
+          "defaultPageSize": 20,
+          "defaultContextLimit": 30,
+          "hiddenFields": [],
+          "maskedFields": []
+        },
+        "entityItemDelete": {
+          "requireCaptchaConfirmation": false,
+          "cascadingRelations": [
+            "employeePayRecords"
+          ],
+          "restrictedStates": [
+            {
+              "description": "Cannot delete finalized or paid runs.",
+              "where": {}
+            }
+          ]
+        }
+      },
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Primary key UUID.",
+          "isPrimaryKey": true,
+          "isRequired": true,
+          "isHidden": false,
+          "isArray": false,
+          "defaultFn": "uuidv4"
+        },
+        {
+          "name": "runNumber",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "payGroupId",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "payGroupName",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "periodStartDate",
+          "type": "date",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "periodEndDate",
+          "type": "date",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "paymentDate",
+          "type": "date",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "totalGrossAmount",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "totalNetAmount",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "totalDeductions",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "totalTaxes",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "employeeCount",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "inputSnapshotRef",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "providerRunRef",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "preparedBy",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "approvedBy",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "finalizedAt",
+          "type": "date",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "isDeleted",
+          "type": "boolean",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        },
+        {
+          "name": "totalGross",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "totalNet",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        }
+      ],
+      "relations": [
+        {
+          "name": "payGroup",
+          "type": "belongsTo",
+          "sourceModel": "HrPayrollRun",
+          "sourceField": "payGroupId",
+          "targetModel": "HrPayGroup",
+          "targetField": "id",
+          "throughModel": null,
+          "description": "The pay group this payroll run belongs to."
+        },
+        {
+          "name": "employeePayRecords",
+          "type": "hasMany",
+          "sourceModel": "HrPayrollRun",
+          "sourceField": "id",
+          "targetModel": "HrEmployeePayRecord",
+          "targetField": "payrollRunId",
+          "throughModel": null,
+          "description": "Employee pay records included in this run."
+        }
+      ]
+    },
+    {
+      "name": "HspDiningCheck",
+      "title": "Dining Check",
+      "description": "`grandTotalAmount == subtotalAmount - compTotalAmount + taxAmount + tipAmount`; split child checks preserve exact `Decimal128` sum invariance; closed checks are immutable.",
+      "domainName": "Rapider Hospitality Suite",
+      "domainKey": "HSP",
+      "datatableName": "HspDiningCheck",
+      "dataTableName": "HspDiningCheck",
+      "sqlTableName": "hsp_dining_check",
+      "isolationScope": "ENTERPRISE_SHARED",
+      "titleFieldTemplate": "{{ id }}",
+      "scope": {
+        "where": {}
+      },
+      "aiAgentConfig": {
+        "vectorSearchFields": [
+          "id"
+        ],
+        "planning": {
+          "availableOperations": [
+            "create",
+            "update",
+            "read",
+            "delete"
+          ]
+        },
+        "entityItemCreate": {
+          "requiredFields": [
+            "id"
+          ],
+          "immutableFields": [
+            "isDeleted"
+          ],
+          "requiredRelations": [],
+          "autoGenerateFields": [
+            "id"
+          ],
+          "additionalPrompt": "When creating Dining Check, ensure required attributes are populated.",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": ""
+        },
+        "entityItemUpdate": {
+          "immutableFields": [
+            "id"
+          ],
+          "autoGenerateFields": [],
+          "additionalPrompt": "",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": "",
+          "restrictedStates": []
+        },
+        "entityRead": {
+          "defaultPageSize": 20,
+          "defaultContextLimit": 30,
+          "hiddenFields": [
+            "isDeleted"
+          ],
+          "maskedFields": [],
+          "additionalPrompt": ""
+        },
+        "entityItemDelete": {
+          "requireCaptchaConfirmation": true,
+          "cascadingRelations": [],
+          "restrictedStates": []
+        }
+      },
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Primary key UUID.",
+          "isPrimaryKey": true,
+          "isRequired": true,
+          "isHidden": false,
+          "isArray": false,
+          "defaultFn": "uuidv4"
+        },
+        {
+          "name": "checkNumber",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "serviceMode",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "externalDeliveryRef",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "tableLabel",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "guestCount",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "guestPhone",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "allergyAlertBanner",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "lines",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "lineNetAmount",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "subtotalAmount",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "compTotalAmount",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "taxAmount",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "tipAmount",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "grandTotalAmount",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "isDeleted",
+          "type": "boolean",
+          "description": "Soft deletion flag.",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        }
+      ],
+      "relations": [
+        {
+          "name": "outlet",
+          "type": "belongsTo",
+          "sourceModel": "HspDiningCheck",
+          "sourceField": "outletId",
+          "targetModel": "HspRestaurantOutlet",
+          "targetField": "id",
+          "throughModel": null,
+          "description": "HspDiningCheck outlet foreign key link to HspRestaurantOutlet."
+        }
+      ]
+    },
+    {
+      "name": "HspMenuItem",
+      "title": "Menu Item",
+      "description": "When `availabilityStatus == COUNTDOWN` and `remainingPortions` decrements to `0`, transitions atomically to `EIGHTY_SIXED`.",
+      "domainName": "Rapider Hospitality Suite",
+      "domainKey": "HSP",
+      "datatableName": "HspMenuItem",
+      "dataTableName": "HspMenuItem",
+      "sqlTableName": "hsp_menu_item",
+      "isolationScope": "ENTERPRISE_SHARED",
+      "titleFieldTemplate": "{{ name }}",
+      "scope": {
+        "where": {}
+      },
+      "aiAgentConfig": {
+        "vectorSearchFields": [
+          "name"
+        ],
+        "planning": {
+          "availableOperations": [
+            "create",
+            "update",
+            "read",
+            "delete"
+          ]
+        },
+        "entityItemCreate": {
+          "requiredFields": [
+            "id"
+          ],
+          "immutableFields": [
+            "isDeleted"
+          ],
+          "requiredRelations": [],
+          "autoGenerateFields": [
+            "id"
+          ],
+          "additionalPrompt": "When creating Menu Item, ensure required attributes are populated.",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": ""
+        },
+        "entityItemUpdate": {
+          "immutableFields": [
+            "id"
+          ],
+          "autoGenerateFields": [],
+          "additionalPrompt": "",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": "",
+          "restrictedStates": []
+        },
+        "entityRead": {
+          "defaultPageSize": 20,
+          "defaultContextLimit": 30,
+          "hiddenFields": [
+            "isDeleted"
+          ],
+          "maskedFields": [],
+          "additionalPrompt": ""
+        },
+        "entityItemDelete": {
+          "requireCaptchaConfirmation": true,
+          "cascadingRelations": [],
+          "restrictedStates": []
+        }
+      },
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Primary key UUID.",
+          "isPrimaryKey": true,
+          "isRequired": true,
+          "isHidden": false,
+          "isArray": false,
+          "defaultFn": "uuidv4"
+        },
+        {
+          "name": "sku",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "kitchenShortName",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "categoryName",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "defaultCourse",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "basePrice",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "targetCookSeconds",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "allergens",
+          "type": "array",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": true
+        },
+        {
+          "name": "availabilityStatus",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "remainingPortions",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Lifecycle or record status.",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "isDeleted",
+          "type": "boolean",
+          "description": "Soft deletion flag.",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        }
+      ],
+      "relations": [
+        {
+          "name": "menu",
+          "type": "belongsTo",
+          "sourceModel": "HspMenuItem",
+          "sourceField": "menuId",
+          "targetModel": "HspRestaurantMenu",
+          "targetField": "id",
+          "throughModel": null,
+          "description": "HspMenuItem menu foreign key link to HspRestaurantMenu."
+        }
+      ]
+    },
+    {
+      "name": "HspModifierGroup",
+      "title": "Modifier Group",
+      "description": "Order line cannot be fired if any `FORCED_*` group violates `minSelections <= count <= maxSelections`.",
+      "domainName": "Rapider Hospitality Suite",
+      "domainKey": "HSP",
+      "datatableName": "HspModifierGroup",
+      "dataTableName": "HspModifierGroup",
+      "sqlTableName": "hsp_modifier_group",
+      "isolationScope": "ENTERPRISE_SHARED",
+      "titleFieldTemplate": "{{ name }}",
+      "scope": {
+        "where": {}
+      },
+      "aiAgentConfig": {
+        "vectorSearchFields": [
+          "name"
+        ],
+        "planning": {
+          "availableOperations": [
+            "create",
+            "update",
+            "read",
+            "delete"
+          ]
+        },
+        "entityItemCreate": {
+          "requiredFields": [
+            "id"
+          ],
+          "immutableFields": [
+            "isDeleted"
+          ],
+          "requiredRelations": [],
+          "autoGenerateFields": [
+            "id"
+          ],
+          "additionalPrompt": "When creating Modifier Group, ensure required attributes are populated.",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": ""
+        },
+        "entityItemUpdate": {
+          "immutableFields": [
+            "id"
+          ],
+          "autoGenerateFields": [],
+          "additionalPrompt": "",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": "",
+          "restrictedStates": []
+        },
+        "entityRead": {
+          "defaultPageSize": 20,
+          "defaultContextLimit": 30,
+          "hiddenFields": [
+            "isDeleted"
+          ],
+          "maskedFields": [],
+          "additionalPrompt": ""
+        },
+        "entityItemDelete": {
+          "requireCaptchaConfirmation": true,
+          "cascadingRelations": [],
+          "restrictedStates": []
+        }
+      },
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Primary key UUID.",
+          "isPrimaryKey": true,
+          "isRequired": true,
+          "isHidden": false,
+          "isArray": false,
+          "defaultFn": "uuidv4"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "selectionRule",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "minSelections",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "maxSelections",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "allowPrefixes",
+          "type": "boolean",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        },
+        {
+          "name": "options",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "upchargeAmount",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Lifecycle or record status.",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "isDeleted",
+          "type": "boolean",
+          "description": "Soft deletion flag.",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        }
+      ],
+      "relations": [
+        {
+          "name": "outlet",
+          "type": "belongsTo",
+          "sourceModel": "HspModifierGroup",
+          "sourceField": "outletId",
+          "targetModel": "HspRestaurantOutlet",
+          "targetField": "id",
+          "throughModel": null,
+          "description": "HspModifierGroup outlet foreign key link to HspRestaurantOutlet."
+        }
+      ]
+    },
+    {
+      "name": "HspRestaurantOutlet",
+      "title": "Restaurant Outlet",
+      "description": "Controls active kitchen quote times and hotel PMS room-charge eligibility.",
+      "domainName": "Rapider Hospitality Suite",
+      "domainKey": "HSP",
+      "datatableName": "HspRestaurantOutlet",
+      "dataTableName": "HspRestaurantOutlet",
+      "sqlTableName": "hsp_restaurant_outlet",
+      "isolationScope": "ENTERPRISE_SHARED",
+      "titleFieldTemplate": "{{ name }}",
+      "scope": {
+        "where": {}
+      },
+      "aiAgentConfig": {
+        "vectorSearchFields": [
+          "name",
+          "code"
+        ],
+        "planning": {
+          "availableOperations": [
+            "create",
+            "update",
+            "read",
+            "delete"
+          ]
+        },
+        "entityItemCreate": {
+          "requiredFields": [
+            "id"
+          ],
+          "immutableFields": [
+            "isDeleted"
+          ],
+          "requiredRelations": [],
+          "autoGenerateFields": [
+            "id"
+          ],
+          "additionalPrompt": "When creating Restaurant Outlet, ensure required attributes are populated.",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": ""
+        },
+        "entityItemUpdate": {
+          "immutableFields": [
+            "id"
+          ],
+          "autoGenerateFields": [],
+          "additionalPrompt": "",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": "",
+          "restrictedStates": []
+        },
+        "entityRead": {
+          "defaultPageSize": 20,
+          "defaultContextLimit": 30,
+          "hiddenFields": [
+            "isDeleted"
+          ],
+          "maskedFields": [],
+          "additionalPrompt": ""
+        },
+        "entityItemDelete": {
+          "requireCaptchaConfirmation": true,
+          "cascadingRelations": [],
+          "restrictedStates": []
+        }
+      },
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Primary key UUID.",
+          "isPrimaryKey": true,
+          "isRequired": true,
+          "isHidden": false,
+          "isArray": false,
+          "defaultFn": "uuidv4"
+        },
+        {
+          "name": "code",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "conceptType",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "timezone",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "currencyCode",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "defaultQuoteMinutes",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "throttleMode",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "phone",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "isDeleted",
+          "type": "boolean",
+          "description": "Soft deletion flag.",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        }
+      ],
+      "relations": [
+        {
+          "name": "property",
+          "type": "belongsTo",
+          "sourceModel": "HspRestaurantOutlet",
+          "sourceField": "propertyId",
+          "targetModel": "HspProperty",
+          "targetField": "id",
+          "throughModel": null,
+          "description": "HspRestaurantOutlet property foreign key link to HspProperty."
+        }
+      ]
+    },
+    {
+      "name": "OpsInventoryItem",
+      "title": "Inventory Item",
+      "description": "Stock-keeping unit (SKU) record with product specifications, valuation rules, and tracking policy.",
+      "domainName": "Rapider Operations Suite",
+      "domainKey": "OPS",
+      "datatableName": "OpsInventoryItem",
+      "dataTableName": "OpsInventoryItem",
+      "sqlTableName": "ops_inventory_item",
+      "isolationScope": "ENTERPRISE_SHARED",
+      "titleFieldTemplate": "{{ name }}",
+      "scope": {
+        "where": {}
+      },
+      "aiAgentConfig": {
+        "vectorSearchFields": [
+          "name",
+          "description"
+        ],
+        "planning": {
+          "availableOperations": [
+            "create",
+            "update",
+            "read",
+            "delete"
+          ]
+        },
+        "entityItemCreate": {
+          "requiredFields": [
+            "id"
+          ],
+          "immutableFields": [
+            "isDeleted"
+          ],
+          "requiredRelations": [],
+          "autoGenerateFields": [
+            "id"
+          ],
+          "additionalPrompt": "When creating Inventory Item, ensure required attributes are populated.",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": ""
+        },
+        "entityItemUpdate": {
+          "immutableFields": [
+            "id"
+          ],
+          "autoGenerateFields": [],
+          "additionalPrompt": "",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": "",
+          "restrictedStates": []
+        },
+        "entityRead": {
+          "defaultPageSize": 20,
+          "defaultContextLimit": 30,
+          "hiddenFields": [
+            "isDeleted"
+          ],
+          "maskedFields": [],
+          "additionalPrompt": ""
+        },
+        "entityItemDelete": {
+          "requireCaptchaConfirmation": true,
+          "cascadingRelations": [],
+          "restrictedStates": []
+        }
+      },
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Primary key UUID.",
+          "isPrimaryKey": true,
+          "isRequired": true,
+          "isHidden": false,
+          "isArray": false,
+          "defaultFn": "uuidv4"
+        },
+        {
+          "name": "sku",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "uom",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "valuationMethod",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "reorderPoint",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "safetyStock",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "standardCost",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "trackLots",
+          "type": "boolean",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        },
+        {
+          "name": "trackSerials",
+          "type": "boolean",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        },
+        {
+          "name": "isDeleted",
+          "type": "boolean",
+          "description": "Soft deletion flag.",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        }
+      ],
+      "relations": []
+    },
+    {
+      "name": "OpsInventoryPosition",
+      "title": "Inventory Position",
+      "description": "Current real-time stock balances across warehouse facilities and storage bin locations.",
+      "domainName": "Rapider Operations Suite",
+      "domainKey": "OPS",
+      "datatableName": "OpsInventoryPosition",
+      "dataTableName": "OpsInventoryPosition",
+      "sqlTableName": "ops_inventory_position",
+      "isolationScope": "ENTERPRISE_SHARED",
+      "titleFieldTemplate": "{{ id }}",
+      "scope": {
+        "where": {}
+      },
+      "aiAgentConfig": {
+        "vectorSearchFields": [
+          "id"
+        ],
+        "planning": {
+          "availableOperations": [
+            "create",
+            "update",
+            "read",
+            "delete"
+          ]
+        },
+        "entityItemCreate": {
+          "requiredFields": [
+            "id"
+          ],
+          "immutableFields": [
+            "isDeleted"
+          ],
+          "requiredRelations": [],
+          "autoGenerateFields": [
+            "id"
+          ],
+          "additionalPrompt": "When creating Inventory Position, ensure required attributes are populated.",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": ""
+        },
+        "entityItemUpdate": {
+          "immutableFields": [
+            "id"
+          ],
+          "autoGenerateFields": [],
+          "additionalPrompt": "",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": "",
+          "restrictedStates": []
+        },
+        "entityRead": {
+          "defaultPageSize": 20,
+          "defaultContextLimit": 30,
+          "hiddenFields": [
+            "isDeleted"
+          ],
+          "maskedFields": [],
+          "additionalPrompt": ""
+        },
+        "entityItemDelete": {
+          "requireCaptchaConfirmation": true,
+          "cascadingRelations": [],
+          "restrictedStates": []
+        }
+      },
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Primary key UUID.",
+          "isPrimaryKey": true,
+          "isRequired": true,
+          "isHidden": false,
+          "isArray": false,
+          "defaultFn": "uuidv4"
+        },
+        {
+          "name": "itemId",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "sku",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "facilityId",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "locationId",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "quantityOnHand",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "quantityReserved",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "quantityAllocated",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "quantityAvailable",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "quantityInTransit",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "lastCountDate",
+          "type": "date",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Lifecycle or record status.",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "isDeleted",
+          "type": "boolean",
+          "description": "Soft deletion flag.",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        }
+      ],
+      "relations": []
+    },
+    {
+      "name": "OpsPurchaseOrder",
+      "title": "Purchase Order",
+      "description": "Procurement purchase order reference used for AP matching and encumbrance tracking.",
+      "domainName": "Rapider Operations Suite",
+      "domainKey": "OPS",
+      "datatableName": "OpsPurchaseOrder",
+      "dataTableName": "OpsPurchaseOrder",
+      "sqlTableName": "ops_purchase_order",
+      "isolationScope": "ENTERPRISE_SHARED",
+      "titleFieldTemplate": "{{ poNumber }} - {{ totalAmount }}",
+      "scope": {
+        "where": {}
+      },
+      "aiAgentConfig": {
+        "vectorSearchFields": [
+          "poNumber"
+        ],
+        "planning": {
+          "availableOperations": [
+            "create",
+            "update",
+            "read",
+            "delete"
+          ]
+        },
+        "entityItemCreate": {
+          "requiredFields": [
+            "poNumber",
+            "supplierId",
+            "totalAmount"
+          ],
+          "immutableFields": [
+            "isDeleted"
+          ],
+          "requiredRelations": [
+            "supplier"
+          ],
+          "autoGenerateFields": [],
+          "additionalPrompt": "",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": ""
+        },
+        "entityItemUpdate": {
+          "immutableFields": [
+            "poNumber"
+          ],
+          "autoGenerateFields": [],
+          "additionalPrompt": "",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": "",
+          "restrictedStates": []
+        },
+        "entityRead": {
+          "defaultPageSize": 20,
+          "defaultContextLimit": 30,
+          "hiddenFields": [],
+          "maskedFields": [],
+          "additionalPrompt": ""
+        },
+        "entityItemDelete": {
+          "requireCaptchaConfirmation": true,
+          "cascadingRelations": [],
+          "restrictedStates": []
+        }
+      },
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Primary key UUID.",
+          "isPrimaryKey": true,
+          "isRequired": true,
+          "isHidden": false,
+          "isArray": false,
+          "defaultFn": "uuidv4"
+        },
+        {
+          "name": "poNumber",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "supplierId",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "orderDate",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "totalAmount",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "receivedAmount",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "isDeleted",
+          "type": "boolean",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        },
+        {
+          "name": "billedAmount",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "matchToleranceRuleId",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "buyerEmployeeId",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "referenceModel": "HrEmployee",
+          "referenceField": "id"
+        },
+        {
+          "name": "revisionNumber",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "sourceRequestId",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "agreementId",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "supplierSiteId",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "legalEntityId",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "deliveryAddress",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "promisedDate",
+          "type": "date",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "subtotal",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "taxAmount",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "paymentTerms",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "externalRef",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        }
+      ],
+      "relations": [
+        {
+          "name": "supplier",
+          "type": "belongsTo",
+          "sourceModel": "OpsPurchaseOrder",
+          "sourceField": "supplierId",
+          "targetModel": "OpsSupplierProfile",
+          "targetField": "id",
+          "throughModel": null,
+          "description": "OpsPurchaseOrder supplier foreign key link to OpsSupplierProfile."
+        },
+        {
+          "name": "supplierSite",
+          "type": "belongsTo",
+          "sourceModel": "OpsPurchaseOrder",
+          "sourceField": "supplierSiteId",
+          "targetModel": "OpsSupplierSite",
+          "targetField": "id",
+          "throughModel": null,
+          "description": "OpsPurchaseOrder supplierSite foreign key link to OpsSupplierSite."
+        },
+        {
+          "name": "legalEntity",
+          "type": "belongsTo",
+          "sourceModel": "OpsPurchaseOrder",
+          "sourceField": "legalEntityId",
+          "targetModel": "FinLegalEntity",
+          "targetField": "id",
+          "throughModel": null,
+          "description": "OpsPurchaseOrder legalEntity foreign key link to FinLegalEntity."
+        },
+        {
+          "name": "buyerEmployee",
+          "type": "belongsTo",
+          "sourceModel": "OpsPurchaseOrder",
+          "sourceField": "buyerEmployeeId",
+          "targetModel": "HrEmployee",
+          "targetField": "id",
+          "throughModel": null,
+          "description": "OpsPurchaseOrder buyerEmployee foreign key link to HrEmployee."
+        }
+      ]
+    },
+    {
+      "name": "OpsSupplierProfile",
+      "title": "Supplier",
+      "description": "Represents a vendor or supplier that provides goods or services.",
+      "domainName": "Rapider Operations Suite",
+      "domainKey": "OPS",
+      "datatableName": "OpsSupplierProfile",
+      "dataTableName": "OpsSupplierProfile",
+      "sqlTableName": "ops_supplier_profile",
+      "isolationScope": "ENTERPRISE_SHARED",
+      "titleFieldTemplate": "{{ name }}",
+      "scope": {
+        "where": {}
+      },
+      "aiAgentConfig": {
+        "vectorSearchFields": [
+          "name",
+          "email",
+          "taxId"
+        ],
+        "planning": {
+          "availableOperations": [
+            "create",
+            "update",
+            "read",
+            "delete"
+          ]
+        },
+        "entityItemCreate": {
+          "requiredFields": [
+            "name"
+          ],
+          "immutableFields": [
+            "isDeleted"
+          ],
+          "requiredRelations": [],
+          "autoGenerateFields": [
+            "status"
+          ],
+          "additionalPrompt": "Ensure supplier name is formatted correctly.",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": "Check if a supplier with the same taxId already exists."
+        },
+        "entityItemUpdate": {
+          "immutableFields": [
+            "taxId"
+          ],
+          "autoGenerateFields": [],
+          "additionalPrompt": "Verify payment terms are standard (e.g., Net 30, Net 60).",
+          "requireUserConfirmation": true,
+          "customValidationPrompt": "Ensure email format is valid if updated.",
+          "restrictedStates": []
+        },
+        "entityRead": {
+          "defaultPageSize": 20,
+          "defaultContextLimit": 30,
+          "hiddenFields": [],
+          "maskedFields": [
+            "taxId"
+          ],
+          "additionalPrompt": "Highlight suppliers with missing payment terms."
+        },
+        "entityItemDelete": {
+          "requireCaptchaConfirmation": true,
+          "cascadingRelations": [
+            "bills"
+          ],
+          "restrictedStates": []
+        }
+      },
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Primary key UUID.",
+          "isPrimaryKey": true,
+          "isRequired": true,
+          "isHidden": false,
+          "isArray": false,
+          "defaultFn": "uuidv4"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "taxId",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "email",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "phone",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "paymentTerms",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "defaultExpenseAccount",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "address",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "city",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "country",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "verificationState",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "isDeleted",
+          "type": "boolean",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        },
+        {
+          "name": "remittanceEmail",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "phoneE164",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "defaultCurrencyCode",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "defaultExpenseGlAccountId",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "referenceModel": "FinGlAccount",
+          "referenceField": "id"
+        },
+        {
+          "name": "is1099Eligible",
+          "type": "boolean",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        },
+        {
+          "name": "supplierCode",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "legalName",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "riskTier",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "categories",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "preferred",
+          "type": "boolean",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        },
+        {
+          "name": "crmAccountId",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        }
+      ],
+      "relations": [
+        {
+          "name": "crmAccount",
+          "type": "belongsTo",
+          "sourceModel": "OpsSupplierProfile",
+          "sourceField": "crmAccountId",
+          "targetModel": "CrmAccount",
+          "targetField": "id?",
+          "throughModel": null,
+          "description": "OpsSupplierProfile crmAccount foreign key link to CrmAccount."
+        },
+        {
+          "name": "defaultExpenseGlAccount",
+          "type": "belongsTo",
+          "sourceModel": "OpsSupplierProfile",
+          "sourceField": "defaultExpenseGlAccountId",
+          "targetModel": "FinGlAccount",
+          "targetField": "id",
+          "throughModel": null,
+          "description": "OpsSupplierProfile defaultExpenseGlAccount foreign key link to FinGlAccount."
+        }
+      ]
+    },
+    {
+      "name": "HspIngredientSpec",
+      "title": "Ingredient Spec",
+      "description": "`effectiveEpCostPerBaseUom == latestApCostPerBaseUom / (trimYieldPct / 100)`; `0 < trimYieldPct <= 100`.",
+      "domainName": "Rapider Hospitality Suite",
+      "domainKey": "HSP",
+      "datatableName": "HspIngredientSpec",
+      "dataTableName": "HspIngredientSpec",
+      "sqlTableName": "hsp_ingredient_spec",
+      "isolationScope": "ENTERPRISE_SHARED",
+      "titleFieldTemplate": "{{ name }}",
+      "scope": {
+        "where": {}
+      },
+      "aiAgentConfig": {
+        "vectorSearchFields": [
+          "name",
+          "code"
+        ],
+        "planning": {
+          "availableOperations": [
+            "create",
+            "update",
+            "read",
+            "delete"
+          ]
+        },
+        "entityItemCreate": {
+          "requiredFields": [
+            "id"
+          ],
+          "immutableFields": [
+            "isDeleted"
+          ],
+          "requiredRelations": [],
+          "autoGenerateFields": [
+            "id"
+          ],
+          "additionalPrompt": "When creating Ingredient Spec, ensure required attributes are populated.",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": ""
+        },
+        "entityItemUpdate": {
+          "immutableFields": [
+            "id"
+          ],
+          "autoGenerateFields": [],
+          "additionalPrompt": "",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": "",
+          "restrictedStates": []
+        },
+        "entityRead": {
+          "defaultPageSize": 20,
+          "defaultContextLimit": 30,
+          "hiddenFields": [
+            "isDeleted"
+          ],
+          "maskedFields": [],
+          "additionalPrompt": ""
+        },
+        "entityItemDelete": {
+          "requireCaptchaConfirmation": true,
+          "cascadingRelations": [],
+          "restrictedStates": []
+        }
+      },
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Primary key UUID.",
+          "isPrimaryKey": true,
+          "isRequired": true,
+          "isHidden": false,
+          "isArray": false,
+          "defaultFn": "uuidv4"
+        },
+        {
+          "name": "code",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "usaliCategory",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "baseRecipeUom",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "trimYieldPct",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "latestApCostPerBaseUom",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "effectiveEpCostPerBaseUom",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "movingAvg30dApCost",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "priceSpikeThresholdPct",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "allergens",
+          "type": "array",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": true
+        },
+        {
+          "name": "kcalPer100g",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "vendorPacks",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "baseUomQtyPerPack",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "lastPackPrice",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Lifecycle or record status.",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "isDeleted",
+          "type": "boolean",
+          "description": "Soft deletion flag.",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        }
+      ],
+      "relations": [
+        {
+          "name": "inventoryItem",
+          "type": "belongsTo",
+          "sourceModel": "HspIngredientSpec",
+          "sourceField": "inventoryItemId",
+          "targetModel": "OpsInventoryItem",
+          "targetField": "id",
+          "throughModel": null,
+          "description": "HspIngredientSpec inventoryItem foreign key link to OpsInventoryItem."
+        }
+      ]
+    },
+    {
+      "name": "HspRecipe",
+      "title": "Recipe",
+      "description": "**Cycle-Free DAG Invariant:** A sub-recipe may never directly or transitively reference itself; `costPerPortion == totalBatchCost / portionsPerBatch`; `inheritedAllergens` equals union of all child `HspRecipeComponent` allergens.",
+      "domainName": "Rapider Hospitality Suite",
+      "domainKey": "HSP",
+      "datatableName": "HspRecipe",
+      "dataTableName": "HspRecipe",
+      "sqlTableName": "hsp_recipe",
+      "isolationScope": "ENTERPRISE_SHARED",
+      "titleFieldTemplate": "{{ name }}",
+      "scope": {
+        "where": {}
+      },
+      "aiAgentConfig": {
+        "vectorSearchFields": [
+          "name"
+        ],
+        "planning": {
+          "availableOperations": [
+            "create",
+            "update",
+            "read",
+            "delete"
+          ]
+        },
+        "entityItemCreate": {
+          "requiredFields": [
+            "id"
+          ],
+          "immutableFields": [
+            "isDeleted"
+          ],
+          "requiredRelations": [],
+          "autoGenerateFields": [
+            "id"
+          ],
+          "additionalPrompt": "When creating Recipe, ensure required attributes are populated.",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": ""
+        },
+        "entityItemUpdate": {
+          "immutableFields": [
+            "id"
+          ],
+          "autoGenerateFields": [],
+          "additionalPrompt": "",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": "",
+          "restrictedStates": []
+        },
+        "entityRead": {
+          "defaultPageSize": 20,
+          "defaultContextLimit": 30,
+          "hiddenFields": [
+            "isDeleted"
+          ],
+          "maskedFields": [],
+          "additionalPrompt": ""
+        },
+        "entityItemDelete": {
+          "requireCaptchaConfirmation": true,
+          "cascadingRelations": [],
+          "restrictedStates": []
+        }
+      },
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Primary key UUID.",
+          "isPrimaryKey": true,
+          "isRequired": true,
+          "isHidden": false,
+          "isArray": false,
+          "defaultFn": "uuidv4"
+        },
+        {
+          "name": "recipeCode",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "recipeKind",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "batchYieldQty",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "batchYieldUom",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "portionsPerBatch",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "cookShrinkagePct",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "totalBatchCost",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "costPerPortion",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "targetFoodCostPct",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "currentMenuPrice",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "actualFoodCostPct",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "contributionMargin",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "engineeringQuadrant",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "inheritedAllergens",
+          "type": "array",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": true
+        },
+        {
+          "name": "prepStepsMarkdown",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "shelfLifeHours",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "isDeleted",
+          "type": "boolean",
+          "description": "Soft deletion flag.",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        }
+      ],
+      "relations": [
+        {
+          "name": "outlet",
+          "type": "belongsTo",
+          "sourceModel": "HspRecipe",
+          "sourceField": "outletId",
+          "targetModel": "HspRestaurantOutlet",
+          "targetField": "id",
+          "throughModel": null,
+          "description": "HspRecipe outlet foreign key link to HspRestaurantOutlet."
+        }
+      ]
+    },
+    {
+      "name": "HspRecipeComponent",
+      "title": "Recipe Component",
+      "description": "Exactly one of `ingredientSpecId` or `childSubRecipeId` is non-null; cost updates cascade bottom-up automatically.",
+      "domainName": "Rapider Hospitality Suite",
+      "domainKey": "HSP",
+      "datatableName": "HspRecipeComponent",
+      "dataTableName": "HspRecipeComponent",
+      "sqlTableName": "hsp_recipe_component",
+      "isolationScope": "ENTERPRISE_SHARED",
+      "titleFieldTemplate": "{{ id }}",
+      "scope": {
+        "where": {}
+      },
+      "aiAgentConfig": {
+        "vectorSearchFields": [
+          "id"
+        ],
+        "planning": {
+          "availableOperations": [
+            "create",
+            "update",
+            "read",
+            "delete"
+          ]
+        },
+        "entityItemCreate": {
+          "requiredFields": [
+            "id"
+          ],
+          "immutableFields": [
+            "isDeleted"
+          ],
+          "requiredRelations": [],
+          "autoGenerateFields": [
+            "id"
+          ],
+          "additionalPrompt": "When creating Recipe Component, ensure required attributes are populated.",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": ""
+        },
+        "entityItemUpdate": {
+          "immutableFields": [
+            "id"
+          ],
+          "autoGenerateFields": [],
+          "additionalPrompt": "",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": "",
+          "restrictedStates": []
+        },
+        "entityRead": {
+          "defaultPageSize": 20,
+          "defaultContextLimit": 30,
+          "hiddenFields": [
+            "isDeleted"
+          ],
+          "maskedFields": [],
+          "additionalPrompt": ""
+        },
+        "entityItemDelete": {
+          "requireCaptchaConfirmation": true,
+          "cascadingRelations": [],
+          "restrictedStates": []
+        }
+      },
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Primary key UUID.",
+          "isPrimaryKey": true,
+          "isRequired": true,
+          "isHidden": false,
+          "isArray": false,
+          "defaultFn": "uuidv4"
+        },
+        {
+          "name": "componentType",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "quantity",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "uom",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "overrideTrimYieldPct",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "extendedComponentCost",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "sortOrder",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "prepNote",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Lifecycle or record status.",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "isDeleted",
+          "type": "boolean",
+          "description": "Soft deletion flag.",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        }
+      ],
+      "relations": [
+        {
+          "name": "parentRecipe",
+          "type": "belongsTo",
+          "sourceModel": "HspRecipeComponent",
+          "sourceField": "parentRecipeId",
+          "targetModel": "HspRecipe",
+          "targetField": "id",
+          "throughModel": null,
+          "description": "HspRecipeComponent parentRecipe foreign key link to HspRecipe."
+        }
+      ]
+    },
+    {
+      "name": "HspVendorPriceObservation",
+      "title": "Vendor Price Observation",
+      "description": "If `priceDeltaPctVsAvg > priceSpikeThresholdPct`, transitions to `PRICE_SPIKE_REVIEW` and alerts Chef/GM; `VERIFIED_PUSHED_AP` updates `HspIngredientSpec.latestApCostPerBaseUom` and cascades dependent `HspRecipe` costs.",
+      "domainName": "Rapider Hospitality Suite",
+      "domainKey": "HSP",
+      "datatableName": "HspVendorPriceObservation",
+      "dataTableName": "HspVendorPriceObservation",
+      "sqlTableName": "hsp_vendor_price_observation",
+      "isolationScope": "ENTERPRISE_SHARED",
+      "titleFieldTemplate": "{{ id }}",
+      "scope": {
+        "where": {}
+      },
+      "aiAgentConfig": {
+        "vectorSearchFields": [
+          "id"
+        ],
+        "planning": {
+          "availableOperations": [
+            "create",
+            "update",
+            "read",
+            "delete"
+          ]
+        },
+        "entityItemCreate": {
+          "requiredFields": [
+            "id"
+          ],
+          "immutableFields": [
+            "isDeleted"
+          ],
+          "requiredRelations": [],
+          "autoGenerateFields": [
+            "id"
+          ],
+          "additionalPrompt": "When creating Vendor Price Observation, ensure required attributes are populated.",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": ""
+        },
+        "entityItemUpdate": {
+          "immutableFields": [
+            "id"
+          ],
+          "autoGenerateFields": [],
+          "additionalPrompt": "",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": "",
+          "restrictedStates": []
+        },
+        "entityRead": {
+          "defaultPageSize": 20,
+          "defaultContextLimit": 30,
+          "hiddenFields": [
+            "isDeleted"
+          ],
+          "maskedFields": [],
+          "additionalPrompt": ""
+        },
+        "entityItemDelete": {
+          "requireCaptchaConfirmation": true,
+          "cascadingRelations": [],
+          "restrictedStates": []
+        }
+      },
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Primary key UUID.",
+          "isPrimaryKey": true,
+          "isRequired": true,
+          "isHidden": false,
+          "isArray": false,
+          "defaultFn": "uuidv4"
+        },
+        {
+          "name": "invoiceNumber",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "deliveryDate",
+          "type": "date",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "vendorSku",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "rawDescription",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "packsReceived",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "catchWeightTotal",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "packUnitPrice",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "computedBaseUomCost",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "priceDeltaPctVsAvg",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "disputeCreditRequestedAmount",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "isDeleted",
+          "type": "boolean",
+          "description": "Soft deletion flag.",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        }
+      ],
+      "relations": [
+        {
+          "name": "outlet",
+          "type": "belongsTo",
+          "sourceModel": "HspVendorPriceObservation",
+          "sourceField": "outletId",
+          "targetModel": "HspRestaurantOutlet",
+          "targetField": "id",
+          "throughModel": null,
+          "description": "HspVendorPriceObservation outlet foreign key link to HspRestaurantOutlet."
+        }
+      ]
+    },
+    {
+      "name": "HspKitchenCountSheet",
+      "title": "Kitchen Count Sheet",
+      "description": "When `isBlindCount == true`, API masks expected theoretical stock until line entry is submitted; immutable once `APPROVED_LOCKED`.",
+      "domainName": "Rapider Hospitality Suite",
+      "domainKey": "HSP",
+      "datatableName": "HspKitchenCountSheet",
+      "dataTableName": "HspKitchenCountSheet",
+      "sqlTableName": "hsp_kitchen_count_sheet",
+      "isolationScope": "ENTERPRISE_SHARED",
+      "titleFieldTemplate": "{{ id }}",
+      "scope": {
+        "where": {}
+      },
+      "aiAgentConfig": {
+        "vectorSearchFields": [
+          "id"
+        ],
+        "planning": {
+          "availableOperations": [
+            "create",
+            "update",
+            "read",
+            "delete"
+          ]
+        },
+        "entityItemCreate": {
+          "requiredFields": [
+            "id"
+          ],
+          "immutableFields": [
+            "isDeleted"
+          ],
+          "requiredRelations": [],
+          "autoGenerateFields": [
+            "id"
+          ],
+          "additionalPrompt": "When creating Kitchen Count Sheet, ensure required attributes are populated.",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": ""
+        },
+        "entityItemUpdate": {
+          "immutableFields": [
+            "id"
+          ],
+          "autoGenerateFields": [],
+          "additionalPrompt": "",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": "",
+          "restrictedStates": []
+        },
+        "entityRead": {
+          "defaultPageSize": 20,
+          "defaultContextLimit": 30,
+          "hiddenFields": [
+            "isDeleted"
+          ],
+          "maskedFields": [],
+          "additionalPrompt": ""
+        },
+        "entityItemDelete": {
+          "requireCaptchaConfirmation": true,
+          "cascadingRelations": [],
+          "restrictedStates": []
+        }
+      },
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Primary key UUID.",
+          "isPrimaryKey": true,
+          "isRequired": true,
+          "isHidden": false,
+          "isArray": false,
+          "defaultFn": "uuidv4"
+        },
+        {
+          "name": "countCode",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "countPeriodDate",
+          "type": "date",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "storageZone",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "isBlindCount",
+          "type": "boolean",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        },
+        {
+          "name": "lines",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "fullPacksCount",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "looseUomQty",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "unitCostSnapshot",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "extendedValue",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "recountFlagged",
+          "type": "boolean",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        },
+        {
+          "name": "totalCountValuation",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "isDeleted",
+          "type": "boolean",
+          "description": "Soft deletion flag.",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        }
+      ],
+      "relations": [
+        {
+          "name": "outlet",
+          "type": "belongsTo",
+          "sourceModel": "HspKitchenCountSheet",
+          "sourceField": "outletId",
+          "targetModel": "HspRestaurantOutlet",
+          "targetField": "id",
+          "throughModel": null,
+          "description": "HspKitchenCountSheet outlet foreign key link to HspRestaurantOutlet."
+        }
+      ]
+    },
+    {
+      "name": "HspFoodCostVariance",
+      "title": "Food Cost Variance",
+      "description": "`actualCogsAmount == beginningInventoryValue + purchasesNetValue - endingInventoryValue`; `unexplainedVarianceAmount == actualCogsAmount - theoreticalCogsAmount - loggedWasteAmount`.",
+      "domainName": "Rapider Hospitality Suite",
+      "domainKey": "HSP",
+      "datatableName": "HspFoodCostVariance",
+      "dataTableName": "HspFoodCostVariance",
+      "sqlTableName": "hsp_food_cost_variance",
+      "isolationScope": "ENTERPRISE_SHARED",
+      "titleFieldTemplate": "{{ id }}",
+      "scope": {
+        "where": {}
+      },
+      "aiAgentConfig": {
+        "vectorSearchFields": [
+          "id"
+        ],
+        "planning": {
+          "availableOperations": [
+            "create",
+            "update",
+            "read",
+            "delete"
+          ]
+        },
+        "entityItemCreate": {
+          "requiredFields": [
+            "id"
+          ],
+          "immutableFields": [
+            "isDeleted"
+          ],
+          "requiredRelations": [],
+          "autoGenerateFields": [
+            "id"
+          ],
+          "additionalPrompt": "When creating Food Cost Variance, ensure required attributes are populated.",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": ""
+        },
+        "entityItemUpdate": {
+          "immutableFields": [
+            "id"
+          ],
+          "autoGenerateFields": [],
+          "additionalPrompt": "",
+          "requireUserConfirmation": false,
+          "customValidationPrompt": "",
+          "restrictedStates": []
+        },
+        "entityRead": {
+          "defaultPageSize": 20,
+          "defaultContextLimit": 30,
+          "hiddenFields": [
+            "isDeleted"
+          ],
+          "maskedFields": [],
+          "additionalPrompt": ""
+        },
+        "entityItemDelete": {
+          "requireCaptchaConfirmation": true,
+          "cascadingRelations": [],
+          "restrictedStates": []
+        }
+      },
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Primary key UUID.",
+          "isPrimaryKey": true,
+          "isRequired": true,
+          "isHidden": false,
+          "isArray": false,
+          "defaultFn": "uuidv4"
+        },
+        {
+          "name": "periodStartDate",
+          "type": "date",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "periodEndDate",
+          "type": "date",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "beginningInventoryValue",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "purchasesNetValue",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "endingInventoryValue",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "actualCogsAmount",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "theoreticalCogsAmount",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "loggedWasteAmount",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "unexplainedVarianceAmount",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "netFbSalesAmount",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "actualCogsPct",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "theoreticalCogsPct",
+          "type": "number",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "topVarianceItems",
+          "type": "object",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false
+        },
+        {
+          "name": "isDeleted",
+          "type": "boolean",
+          "description": "Soft deletion flag.",
+          "isRequired": false,
+          "isHidden": false,
+          "isArray": false,
+          "default": false
+        }
+      ],
+      "relations": [
+        {
+          "name": "outlet",
+          "type": "belongsTo",
+          "sourceModel": "HspFoodCostVariance",
+          "sourceField": "outletId",
+          "targetModel": "HspRestaurantOutlet",
+          "targetField": "id",
+          "throughModel": null,
+          "description": "HspFoodCostVariance outlet foreign key link to HspRestaurantOutlet."
+        }
+      ]
+    }
+  ],
+  "webPages": [
+    {
+      "name": "Prime Cost & Margin Pulse",
+      "route": "dashboard",
+      "htmlFilePath": "pages/dashboard/dashboard.html",
+      "title": "Prime Cost & Margin Pulse",
+      "group": "Culinary & Recipes",
+      "icon": "fas fa-home",
+      "displayInMenu": true,
+      "order": 1,
+      "developmentDetails": "KPI cards (countSWR): Theoretical vs. Actual Food Cost %, Pour Cost %, Daily Prime Cost %, Active Price-Creep Alerts, Margin-Breached Dishes."
+    },
+    {
+      "name": "Recipe & Sub-Recipe Book",
+      "route": "recipes",
+      "htmlFilePath": "pages/recipes/recipes.html",
+      "title": "Recipe & Sub-Recipe Book",
+      "group": "Culinary & Recipes",
+      "icon": "fas fa-concierge-bell",
+      "displayInMenu": true,
+      "order": 2,
+      "developmentDetails": "Searchable HspRecipe catalog (PLATED_DISH, SUB_RECIPE_BATCH, MODIFIER_SPEC, COCKTAIL) via findSWR, #activeFilterTagsBar with Clear all, live food-cost % vs. target badge, clickable recipe name -> recipe-detail."
+    },
+    {
+      "name": "Ingredients, Packs & Yields",
+      "route": "ingredients",
+      "htmlFilePath": "pages/ingredients/ingredients.html",
+      "title": "Ingredients, Packs & Yields",
+      "group": "Culinary & Recipes",
+      "icon": "fas fa-concierge-bell",
+      "displayInMenu": true,
+      "order": 3,
+      "developmentDetails": "HspIngredientSpec table showing AP pack price, trimYieldPct, usable EP cost/oz (Decimal128), allergen badges, 30-day price trend sparkline."
+    },
+    {
+      "name": "Invoice Lines & Price Creep",
+      "route": "vendor-prices",
+      "htmlFilePath": "pages/vendor-prices/vendor-prices.html",
+      "title": "Invoice Lines & Price Creep",
+      "group": "Purchasing & Counts",
+      "icon": "fas fa-concierge-bell",
+      "displayInMenu": true,
+      "order": 4,
+      "developmentDetails": "<rapider-kanban> workflow (EXTRACTED_NEEDS_MAP, PRICE_SPIKE_REVIEW, CREDIT_DISPUTE_OPEN, VERIFIED_PUSHED_AP) + line ledger (HspVendorPriceObservation)."
+    },
+    {
+      "name": "Smart Par Order Guide",
+      "route": "par-orders",
+      "htmlFilePath": "pages/par-orders/par-orders.html",
+      "title": "Smart Par Order Guide",
+      "group": "Purchasing & Counts",
+      "icon": "fas fa-concierge-bell",
+      "displayInMenu": true,
+      "order": 5,
+      "developmentDetails": "Multi-vendor usable-unit price comparison matrix (OpsSupplierProfile with <rapider-phone-input> rep contact), par shortage quantities, one-click draft OpsPurchaseOrder push."
+    },
+    {
+      "name": "Shelf-to-Sheet Counts",
+      "route": "count-sheets",
+      "htmlFilePath": "pages/count-sheets/count-sheets.html",
+      "title": "Shelf-to-Sheet Counts",
+      "group": "Purchasing & Counts",
+      "icon": "fas fa-concierge-bell",
+      "displayInMenu": true,
+      "order": 6,
+      "developmentDetails": "HspKitchenCountSheet directory (WALK_IN_COOLER, FREEZER, DRY_STORAGE, BAR_RAIL), blind-count status, clickable #CNT-... -> count-sheet-detail."
+    },
+    {
+      "name": "Theoretical vs. Actual (TvA)",
+      "route": "tva-variance",
+      "htmlFilePath": "pages/tva-variance/tva-variance.html",
+      "title": "Theoretical vs. Actual (TvA)",
+      "group": "Margin & Variance",
+      "icon": "fas fa-concierge-bell",
+      "displayInMenu": true,
+      "order": 7,
+      "developmentDetails": "HspFoodCostVariance breakdown by category & top dollar leak ingredients (Actual vs. #170 PMIX Theoretical vs. Logged Waste = Unexplained Shrinkage \\$)."
+    },
+    {
+      "name": "Menu Engineering Matrix",
+      "route": "menu-engineering",
+      "htmlFilePath": "pages/menu-engineering/menu-engineering.html",
+      "title": "Menu Engineering Matrix",
+      "group": "Margin & Variance",
+      "icon": "fas fa-concierge-bell",
+      "displayInMenu": true,
+      "order": 8,
+      "developmentDetails": "Interactive 4-quadrant matrix (STAR, PLOWHORSE, PUZZLE, DOG) + sortable contribution-margin table with What-If price simulator."
+    },
+    {
+      "name": "COGS Valuation & GL Sync",
+      "route": "cogs-gl-close",
+      "htmlFilePath": "pages/cogs-gl-close/cogs-gl-close.html",
+      "title": "COGS Valuation & GL Sync",
+      "group": "Margin & Variance",
+      "icon": "fas fa-concierge-bell",
+      "displayInMenu": true,
+      "order": 9,
+      "developmentDetails": "Beginning + Purchases - Ending COGS summary by USALI category (Food, Liquor, Wine, Beer), FinSupplierBill & FinJournalEntry sync audit."
+    },
+    {
+      "name": "Culinary Spec Card & Cost 360",
+      "route": "recipe-detail",
+      "htmlFilePath": "pages/recipe-detail/recipe-detail.html",
+      "title": "Culinary Spec Card & Cost 360",
+      "group": "(Hidden)",
+      "icon": "fas fa-concierge-bell",
+      "displayInMenu": false,
+      "order": 10,
+      "developmentDetails": "Full HspRecipe workspace (?id=...): interactive batch scaler (1x, 4x, 10x), nested HspRecipeComponent tree, AP/EP yield breakdown, plating instructions, inherited allergens/kcal, AI Plowhorse tips (projectChannelMessage), Back to Recipes."
+    },
+    {
+      "name": "Mobile Walk-Path Counter",
+      "route": "count-sheet-detail",
+      "htmlFilePath": "pages/count-sheet-detail/count-sheet-detail.html",
+      "title": "Mobile Walk-Path Counter",
+      "group": "(Hidden)",
+      "icon": "fas fa-concierge-bell",
+      "displayInMenu": false,
+      "order": 11,
+      "developmentDetails": "Ordered storage-zone entry grid (?id=...) accepting Cases + Loose Units, blind-audit recount warnings, supervisor sign-off & Back to Count Sheets."
+    },
+    {
+      "name": "Create Recipe / Add Ingredient",
+      "route": "recipe-component-drawer",
+      "htmlFilePath": "pages/recipe-component-drawer/recipe-component-drawer.html",
+      "title": "Create Recipe / Add Ingredient",
+      "group": "(Hidden)",
+      "icon": "fas fa-concierge-bell",
+      "displayInMenu": false,
+      "order": 12,
+      "developmentDetails": "Sliding drawer enforcing cycle-free sub-recipe selection, UoM conversion preview, Decimal128 EP cost calculation, try/catch/finally save reset, auto-close."
+    },
+    {
+      "name": "Map SKU / Flag Price Dispute",
+      "route": "invoice-line-drawer",
+      "htmlFilePath": "pages/invoice-line-drawer/invoice-line-drawer.html",
+      "title": "Map SKU / Flag Price Dispute",
+      "group": "(Hidden)",
+      "icon": "fas fa-concierge-bell",
+      "displayInMenu": false,
+      "order": 13,
+      "developmentDetails": "Sliding drawer mapping vendor invoice SKU to HspIngredientSpec or raising a short-ship/price-spike Home WorkItem dispute before FinSupplierBill posting."
+    }
+  ],
+  "workflows": [],
+  "variables": [],
+  "tools": [],
+  "pages": [
+    {
+      "name": "Prime Cost & Margin Pulse",
+      "route": "dashboard",
+      "htmlFilePath": "pages/dashboard/dashboard.html",
+      "title": "Prime Cost & Margin Pulse",
+      "group": "Culinary & Recipes",
+      "icon": "fas fa-home",
+      "displayInMenu": true,
+      "order": 1,
+      "developmentDetails": "KPI cards (countSWR): Theoretical vs. Actual Food Cost %, Pour Cost %, Daily Prime Cost %, Active Price-Creep Alerts, Margin-Breached Dishes."
+    },
+    {
+      "name": "Recipe & Sub-Recipe Book",
+      "route": "recipes",
+      "htmlFilePath": "pages/recipes/recipes.html",
+      "title": "Recipe & Sub-Recipe Book",
+      "group": "Culinary & Recipes",
+      "icon": "fas fa-concierge-bell",
+      "displayInMenu": true,
+      "order": 2,
+      "developmentDetails": "Searchable HspRecipe catalog (PLATED_DISH, SUB_RECIPE_BATCH, MODIFIER_SPEC, COCKTAIL) via findSWR, #activeFilterTagsBar with Clear all, live food-cost % vs. target badge, clickable recipe name -> recipe-detail."
+    },
+    {
+      "name": "Ingredients, Packs & Yields",
+      "route": "ingredients",
+      "htmlFilePath": "pages/ingredients/ingredients.html",
+      "title": "Ingredients, Packs & Yields",
+      "group": "Culinary & Recipes",
+      "icon": "fas fa-concierge-bell",
+      "displayInMenu": true,
+      "order": 3,
+      "developmentDetails": "HspIngredientSpec table showing AP pack price, trimYieldPct, usable EP cost/oz (Decimal128), allergen badges, 30-day price trend sparkline."
+    },
+    {
+      "name": "Invoice Lines & Price Creep",
+      "route": "vendor-prices",
+      "htmlFilePath": "pages/vendor-prices/vendor-prices.html",
+      "title": "Invoice Lines & Price Creep",
+      "group": "Purchasing & Counts",
+      "icon": "fas fa-concierge-bell",
+      "displayInMenu": true,
+      "order": 4,
+      "developmentDetails": "<rapider-kanban> workflow (EXTRACTED_NEEDS_MAP, PRICE_SPIKE_REVIEW, CREDIT_DISPUTE_OPEN, VERIFIED_PUSHED_AP) + line ledger (HspVendorPriceObservation)."
+    },
+    {
+      "name": "Smart Par Order Guide",
+      "route": "par-orders",
+      "htmlFilePath": "pages/par-orders/par-orders.html",
+      "title": "Smart Par Order Guide",
+      "group": "Purchasing & Counts",
+      "icon": "fas fa-concierge-bell",
+      "displayInMenu": true,
+      "order": 5,
+      "developmentDetails": "Multi-vendor usable-unit price comparison matrix (OpsSupplierProfile with <rapider-phone-input> rep contact), par shortage quantities, one-click draft OpsPurchaseOrder push."
+    },
+    {
+      "name": "Shelf-to-Sheet Counts",
+      "route": "count-sheets",
+      "htmlFilePath": "pages/count-sheets/count-sheets.html",
+      "title": "Shelf-to-Sheet Counts",
+      "group": "Purchasing & Counts",
+      "icon": "fas fa-concierge-bell",
+      "displayInMenu": true,
+      "order": 6,
+      "developmentDetails": "HspKitchenCountSheet directory (WALK_IN_COOLER, FREEZER, DRY_STORAGE, BAR_RAIL), blind-count status, clickable #CNT-... -> count-sheet-detail."
+    },
+    {
+      "name": "Theoretical vs. Actual (TvA)",
+      "route": "tva-variance",
+      "htmlFilePath": "pages/tva-variance/tva-variance.html",
+      "title": "Theoretical vs. Actual (TvA)",
+      "group": "Margin & Variance",
+      "icon": "fas fa-concierge-bell",
+      "displayInMenu": true,
+      "order": 7,
+      "developmentDetails": "HspFoodCostVariance breakdown by category & top dollar leak ingredients (Actual vs. #170 PMIX Theoretical vs. Logged Waste = Unexplained Shrinkage \\$)."
+    },
+    {
+      "name": "Menu Engineering Matrix",
+      "route": "menu-engineering",
+      "htmlFilePath": "pages/menu-engineering/menu-engineering.html",
+      "title": "Menu Engineering Matrix",
+      "group": "Margin & Variance",
+      "icon": "fas fa-concierge-bell",
+      "displayInMenu": true,
+      "order": 8,
+      "developmentDetails": "Interactive 4-quadrant matrix (STAR, PLOWHORSE, PUZZLE, DOG) + sortable contribution-margin table with What-If price simulator."
+    },
+    {
+      "name": "COGS Valuation & GL Sync",
+      "route": "cogs-gl-close",
+      "htmlFilePath": "pages/cogs-gl-close/cogs-gl-close.html",
+      "title": "COGS Valuation & GL Sync",
+      "group": "Margin & Variance",
+      "icon": "fas fa-concierge-bell",
+      "displayInMenu": true,
+      "order": 9,
+      "developmentDetails": "Beginning + Purchases - Ending COGS summary by USALI category (Food, Liquor, Wine, Beer), FinSupplierBill & FinJournalEntry sync audit."
+    },
+    {
+      "name": "Culinary Spec Card & Cost 360",
+      "route": "recipe-detail",
+      "htmlFilePath": "pages/recipe-detail/recipe-detail.html",
+      "title": "Culinary Spec Card & Cost 360",
+      "group": "(Hidden)",
+      "icon": "fas fa-concierge-bell",
+      "displayInMenu": false,
+      "order": 10,
+      "developmentDetails": "Full HspRecipe workspace (?id=...): interactive batch scaler (1x, 4x, 10x), nested HspRecipeComponent tree, AP/EP yield breakdown, plating instructions, inherited allergens/kcal, AI Plowhorse tips (projectChannelMessage), Back to Recipes."
+    },
+    {
+      "name": "Mobile Walk-Path Counter",
+      "route": "count-sheet-detail",
+      "htmlFilePath": "pages/count-sheet-detail/count-sheet-detail.html",
+      "title": "Mobile Walk-Path Counter",
+      "group": "(Hidden)",
+      "icon": "fas fa-concierge-bell",
+      "displayInMenu": false,
+      "order": 11,
+      "developmentDetails": "Ordered storage-zone entry grid (?id=...) accepting Cases + Loose Units, blind-audit recount warnings, supervisor sign-off & Back to Count Sheets."
+    },
+    {
+      "name": "Create Recipe / Add Ingredient",
+      "route": "recipe-component-drawer",
+      "htmlFilePath": "pages/recipe-component-drawer/recipe-component-drawer.html",
+      "title": "Create Recipe / Add Ingredient",
+      "group": "(Hidden)",
+      "icon": "fas fa-concierge-bell",
+      "displayInMenu": false,
+      "order": 12,
+      "developmentDetails": "Sliding drawer enforcing cycle-free sub-recipe selection, UoM conversion preview, Decimal128 EP cost calculation, try/catch/finally save reset, auto-close."
+    },
+    {
+      "name": "Map SKU / Flag Price Dispute",
+      "route": "invoice-line-drawer",
+      "htmlFilePath": "pages/invoice-line-drawer/invoice-line-drawer.html",
+      "title": "Map SKU / Flag Price Dispute",
+      "group": "(Hidden)",
+      "icon": "fas fa-concierge-bell",
+      "displayInMenu": false,
+      "order": 13,
+      "developmentDetails": "Sliding drawer mapping vendor invoice SKU to HspIngredientSpec or raising a short-ship/price-spike Home WorkItem dispute before FinSupplierBill posting."
+    }
+  ]
+}
